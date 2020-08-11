@@ -2185,15 +2185,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: attackDistanceOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1262865719947935218, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1262865719947935218, guid: ca11417e2ede1d24abd71ed1e1b025cf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1262865719947935219, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.11
       objectReference: {fileID: 0}
     - target: {fileID: 1262865719947935219, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
@@ -2203,7 +2224,7 @@ PrefabInstance:
     - target: {fileID: 1262865719947935219, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 1262865719947935219, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
@@ -2244,6 +2265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142011430661638397, guid: ca11417e2ede1d24abd71ed1e1b025cf,
+        type: 3}
+      propertyPath: healthPoints
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
