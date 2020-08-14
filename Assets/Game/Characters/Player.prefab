@@ -2187,15 +2187,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: m_Acceleration
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: m_AutoBraking
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292700082, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: m_Speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: attackDistanceOffset
