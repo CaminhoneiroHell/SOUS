@@ -146,7 +146,7 @@ namespace RPG.Control
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.black;
+            Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, playerDistanceToChase);
         }
     }
