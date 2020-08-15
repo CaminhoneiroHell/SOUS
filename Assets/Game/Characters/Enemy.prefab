@@ -38,9 +38,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2501b1f8293f7f740a67506f247e354a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 0}
   playerDistanceToChase: 5
   timeSinceLastSawnPlayer: Infinity
-  timeToForgetPlayerLastSawn: 6
+  suspiciousTime: 5
+  timeSinceReachedLastNode: Infinity
+  patrolTimeEachNode: 4
 --- !u!1001 &4600088847849228791
 PrefabInstance:
   m_ObjectHideFlags: 0
