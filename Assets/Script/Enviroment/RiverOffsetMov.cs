@@ -8,6 +8,8 @@ public class RiverOffsetMov : MonoBehaviour
     [SerializeField]Terrain terrain;
     [SerializeField] TerrainLayer water;
 
+    [SerializeField] float x,y;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,6 @@ public class RiverOffsetMov : MonoBehaviour
     void Update()
     {
         //Debug.Log(TerrainPaintUtility.FindTerrainLayerIndex(terrain, water));
-        water.tileOffset = new Vector2(0, 5 * Time.time);
+        water.tileOffset = new Vector2(5 * Time.time, 0 );
     }
 }

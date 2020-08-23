@@ -34,6 +34,9 @@ namespace RPG.Cinematics
 
         void EnableControl(PlayableDirector aDirector)
         {
+            GameObject go = GameObject.FindGameObjectWithTag("Player");
+            go.GetComponent<PlayerController>().enabled = true;
+
             if (director == aDirector)
                 Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
         }
