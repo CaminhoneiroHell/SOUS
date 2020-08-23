@@ -15,17 +15,20 @@ namespace RPG.Control
         Fight fight;
         Mover mover;
         Health health;
-        ActionScheduler actScheduler;
         GameObject player;
+        ActionScheduler actScheduler;
         [SerializeField] PatrolPath path = null;
 
         Vector3 guardPosition;
         float wayPointDistanceTolerance = 1f;
 
-        float playerDistance;
+        [SerializeField] float playerDistance;
         [SerializeField] float playerDistanceToChase = 2f;
         [SerializeField] float timeSinceLastSawnPlayer = Mathf.Infinity;
         [SerializeField] float suspiciousTime = 5f;
+        
+        [Range(0,1)]
+        [SerializeField] float patrolSpeedFraction = 0.4f;
 
         void Start()
         {
@@ -111,9 +114,9 @@ namespace RPG.Control
             }
             nextPosition = GetCurrentWayPoint();
 
-            if(timeSinceReachedLastNode > patrolTimeEachNode)
+            if (timeSinceReachedLastNode > patrolTimeEachNode)
             {
-                mover.MoveTo(nextPosition); 
+                mover.MoveTo(nextPosition, patrolSpeedFraction);
             }
         }
 

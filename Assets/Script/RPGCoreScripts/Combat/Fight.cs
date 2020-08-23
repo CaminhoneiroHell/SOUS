@@ -24,7 +24,6 @@ namespace RPG.Combat
         public bool targetIsInRange;
         private void Start()
         {
-        
             mov = GetComponent<Mover>();
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
@@ -39,7 +38,7 @@ namespace RPG.Combat
             {
                 if (!TargetIsInRange())
                 {
-                    mov.MoveTo(target.transform.position);
+                    mov.MoveTo(target.transform.position, 1f);
                 }
                 else
                 {
@@ -84,7 +83,8 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
-            animator.SetTrigger("OutOfAttack");
+            animator.SetTrigger("Out of Moving to attack position");
+            GetComponent<Mover>().Cancel();
         }
 
         //Called by trigger event on the attack animation
