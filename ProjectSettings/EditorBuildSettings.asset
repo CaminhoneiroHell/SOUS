@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox2.unity
     guid: 4c5500bb79139364a9dada3475002516
   - enabled: 1
-    path: Assets/Scenes/Road2Urtigueira.unity
-    guid: be1a52b5ff1a1d9438dcdc34f3f60032
+    path: Assets/Scenes/Sandbox3.unity
+    guid: d33460de7ecf9c94e8d286d2829650d2
   m_configObjects: {}
