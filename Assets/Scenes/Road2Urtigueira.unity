@@ -7082,7 +7082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 502018354}
-  m_PathPosition: 0.002040863
+  m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 2, z: 0}
   m_XDamping: 0
@@ -12449,7 +12449,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133994259}
-  m_LocalRotation: {x: 0.008572951, y: 0.45426062, z: -0.004371662, w: 0.8908169}
+  m_LocalRotation: {x: 0.0085789, y: 0.45436203, z: -0.004375934, w: 0.89076513}
   m_LocalPosition: {x: 119.041626, y: -0.16873002, z: 115.389984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20163,6 +20163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrain: {fileID: 1827095610}
   water: {fileID: 8574412962073106934, guid: 176728ab8e9e6504690398cd74f3c1f4, type: 2}
+  x: 0
+  y: 0
 --- !u!4 &1855816240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b,

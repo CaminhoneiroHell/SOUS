@@ -20,7 +20,7 @@ public class Fader : MonoBehaviour
 
     void FadeOut()
     {
-        cg.alpha -= 0.3f * Time.deltaTime;
+        cg.alpha -= 0.3f * Time.deltaTime; 
     }
 
     // Update is called once per frame
