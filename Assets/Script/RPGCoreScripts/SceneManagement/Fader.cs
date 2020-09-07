@@ -1,34 +1,43 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Fader : MonoBehaviour
+namespace RPG.Core
 {
-    CanvasGroup cg;
-    [SerializeField]bool fadeIn;
-    [SerializeField]bool fadeOut;
-    // Start is called before the first frame update
-    void Start()
+    public class Fader : MonoBehaviour
     {
-        cg = GetComponent<CanvasGroup>();
+        CanvasGroup cg;
+        [SerializeField] float fadeTime = 0.3f;
+        // Start is called before the first frame update
+        void Start()
+        {
+            cg = GetComponent<CanvasGroup>();
+            //StartCoroutine(FadeInOut());
+        }
+
+        public IEnumerator FadeOut(float time)
+        {
+            while(cg.alpha < 1)
+            {
+                cg.alpha +=  Time.deltaTime / time;
+                yield return null; 
+            }
+        }
+
+        public IEnumerator FadeIn(float time)
+        {
+            while (cg.alpha > 0)
+            {
+                cg.alpha -= Time.deltaTime / time;
+                yield return null;
+            }
+        }
+
+        public IEnumerator FadeInOut()
+        {
+            yield return FadeOut(fadeTime);
+            yield return FadeIn(fadeTime);
+        }
     }
 
-    void FadeIn()
-    {
-        cg.alpha += 0.3f * Time.deltaTime;
-    }
-
-    void FadeOut()
-    {
-        cg.alpha -= 0.3f * Time.deltaTime; 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (fadeIn)
-            FadeIn();
-        if (fadeOut)
-            FadeOut();
-    }
 }
