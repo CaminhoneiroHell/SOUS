@@ -46,7 +46,7 @@ namespace RPG.SceneManagement
 
         public IEnumerator SceneTransition()
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeOutTime);
