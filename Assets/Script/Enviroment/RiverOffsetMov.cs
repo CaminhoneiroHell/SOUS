@@ -6,7 +6,7 @@ using UnityEngine.Experimental.TerrainAPI;
 public class RiverOffsetMov : MonoBehaviour
 {
     [SerializeField]Terrain terrain;
-    [SerializeField] TerrainLayer water;
+    [SerializeField]TerrainLayer water;
 
     [SerializeField] float x,y;
 
@@ -20,6 +20,7 @@ public class RiverOffsetMov : MonoBehaviour
     void Update()
     {
         //Debug.Log(TerrainPaintUtility.FindTerrainLayerIndex(terrain, water));
-        water.tileOffset = new Vector2(5 * Time.time, 0 );
+        if(water != null)
+            water.tileOffset = new Vector2(5 * Time.time, 0 );
     }
 }

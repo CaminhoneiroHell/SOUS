@@ -9,7 +9,8 @@ namespace RPG.Core
         CanvasGroup cg;
         [SerializeField] float fadeTime = 0.3f;
         // Start is called before the first frame update
-        void Start()
+
+        private void Start()
         {
             cg = GetComponent<CanvasGroup>();
             //StartCoroutine(FadeInOut());
@@ -17,17 +18,26 @@ namespace RPG.Core
 
         public IEnumerator FadeOut(float time)
         {
-            while(cg.alpha < 1)
+            if(cg == null)
+                cg = GetComponent<CanvasGroup>();
+
+            while (cg.alpha < 1)
             {
+                print("cgalphaincrease");
                 cg.alpha +=  Time.deltaTime / time;
-                yield return null; 
+                yield return null;
             }
         }
 
         public IEnumerator FadeIn(float time)
         {
+            if (cg == null)
+                cg = GetComponent<CanvasGroup>();
+
             while (cg.alpha > 0)
             {
+                print("FadeIn");
+                print("cgalphadiscount");
                 cg.alpha -= Time.deltaTime / time;
                 yield return null;
             }
@@ -39,5 +49,4 @@ namespace RPG.Core
             yield return FadeIn(fadeTime);
         }
     }
-
 }

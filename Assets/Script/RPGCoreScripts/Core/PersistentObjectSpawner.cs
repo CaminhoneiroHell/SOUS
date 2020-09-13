@@ -12,6 +12,8 @@ public class PersistentObjectSpawner : MonoBehaviour
     {
         if (hasSpawned) return;
 
+        InstantiatePersistentGmobj();
+
         hasSpawned = true;
     }
 

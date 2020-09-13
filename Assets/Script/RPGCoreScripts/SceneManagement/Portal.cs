@@ -7,6 +7,7 @@ namespace RPG.SceneManagement
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine.SceneManagement;
+    using Patterns.Creational.Singleton;
     using System;
     using RPG.Core;
 
@@ -15,25 +16,19 @@ namespace RPG.SceneManagement
         A, B, C, D, E
     }
 
-    public class Portal : MonoBehaviour
+    public class Portal : MonoBehaviour //Singleton<Portal>
     {
         public Transform spawnPoint;
         public Destination destination;
         
         [SerializeField] int sceneToLoad = 0;
-        [SerializeField] float fadeOutTime = 0.3f, fadeInTime = 0.3f;
+        [SerializeField] float fadeOutTime = 0.3f, fadeInTime = 0.3f, fadeWaitTime = 2f;
 
         GameObject player;
         // Start is called before the first frame update
         void Start()
         {
             spawnPoint = transform.GetChild(0);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            
         }
 
         private void OnTriggerEnter(Collider other)
@@ -46,18 +41,27 @@ namespace RPG.SceneManagement
 
         public IEnumerator SceneTransition()
         {
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeOutTime);
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
 
+            yield return new WaitForSeconds(fadeWaitTime);
+            
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            if(fader == null)
+                fader = FindObjectOfType<Fader>();
+    
             yield return fader.FadeIn(fadeInTime);
-            
+
+            print("FadeIn Concluded destroy this");
+            Destroy(this.gameObject);
+
             print("Scene Loaded");
-            Destroy(gameObject);
 
         }
 
@@ -68,19 +72,19 @@ namespace RPG.SceneManagement
             player.transform.position = otherPortal.spawnPoint.transform.position;
             player.transform.rotation = otherPortal.spawnPoint.transform.rotation;
             player.GetComponent<NavMeshAgent>().enabled = true;
+            print("Player updted to: " + player.transform.position);
         }
 
         private Portal GetOtherPortal()
         {
-            foreach(Portal portal in FindObjectsOfType<Portal>())
+            //print("GetOtherPortal");
+            foreach (Portal portal in FindObjectsOfType<Portal>())
             {
                 if (portal == this) continue;
                 if (portal.destination != destination) continue;
 
                 return portal;
-
             }
-
             return null;
         }
     }
