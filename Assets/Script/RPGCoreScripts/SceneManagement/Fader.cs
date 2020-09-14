@@ -33,7 +33,8 @@ namespace RPG.Core
         {
             if (cg == null)
                 cg = GetComponent<CanvasGroup>();
-
+            
+            cg.alpha = 1;
             while (cg.alpha > 0)
             {
                 print("FadeIn");

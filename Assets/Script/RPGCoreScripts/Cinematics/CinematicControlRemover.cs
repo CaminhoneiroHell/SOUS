@@ -1,12 +1,12 @@
 ﻿
 namespace RPG.Cinematics
 {
-    using RPG.Control;
-    using RPG.Core;
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using RPG.Core;
     using UnityEngine;
+    using RPG.Control;
     using UnityEngine.Playables;
 
     public class CinematicControlRemover : MonoBehaviour
@@ -41,17 +41,12 @@ namespace RPG.Cinematics
                 Debug.Log("PlayableDirector named " + aDirector.name + " is now stopped.");
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         private void OnDisable()
         {
             director.played -= DisableControl;
             director.stopped -= EnableControl;
         }
+
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersistentObjectSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject PersistentGameObject;
+    [SerializeField] GameObject[] PersistentGameObject;
 
     static bool hasSpawned = false;
 
@@ -19,7 +19,11 @@ public class PersistentObjectSpawner : MonoBehaviour
 
     void InstantiatePersistentGmobj()
     {
-        GameObject persistent = Instantiate(PersistentGameObject);
-        DontDestroyOnLoad(persistent);
+        for(int i = 0; i < PersistentGameObject.Length; i++)
+        {
+
+            GameObject persistent =  Instantiate(PersistentGameObject[i]);
+            DontDestroyOnLoad(persistent);
+        }
     }
 }

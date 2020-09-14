@@ -6,8 +6,9 @@ namespace RPG.Core
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using RPG.Saving;
 
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoints = 100f;
         Animator anim;
@@ -48,5 +49,25 @@ namespace RPG.Core
             anim.SetBool("Dead", true);
         }
 
+        public object CaptureState()
+        {
+            return healthPoints;
+        }
+
+        public void RestoreState(object state)
+        {
+
+            healthPoints = (float)state;
+
+            if (IsDead())
+            {
+                Die(); SetAnimToDead();
+            }
+            //else
+            //{
+            //    col.enabled = true;
+            //    anim.SetBool("Dead", false);
+            //}
+        }
     }
 }

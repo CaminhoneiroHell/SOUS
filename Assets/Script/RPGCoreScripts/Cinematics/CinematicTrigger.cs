@@ -1,27 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Playables;
-
-
-namespace RPG.Cinematics
+﻿namespace RPG.Cinematics
 {
-    public class CinematicTrigger : MonoBehaviour
+    using System.Collections;
+    using System.Collections.Generic;
+    using RPG.Saving;
+    using UnityEngine;
+    using UnityEngine.Playables;
+
+    public class CinematicTrigger : MonoBehaviour, ISaveable
     {
-
-        // Start is called before the first frame update
-        void Start()
-        {
-           
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         bool action;
+
+        public object CaptureState()
+        {
+            return action;
+        }
+
+        public void RestoreState(object state)
+        {
+            bool b = action;
+            action = (bool)state;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
