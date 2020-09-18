@@ -323,6 +323,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386f40ad68cdd3c4fbcb471ef2d93772, type: 3}
+--- !u!1 &119713576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2916696449990818018, guid: e412f01eff3a35e4a85da87cfa45b3b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 717298597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &119713577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119713576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80102cf7a89f1734dbd3735c0f2b8fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PersistentGameObject:
+  - {fileID: 5308467740611018140, guid: 19b9520f55af1104395972f7db3556e6, type: 3}
+  - {fileID: 2856333536217523954, guid: dc5fb30faabd8ff4591e0f4d6f8a4c3f, type: 3}
 --- !u!1 &462947101
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4016048
+      value: 0.40160474
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -440,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.23673184
+      value: -0.23673189
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -525,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4016048
+      value: 0.40160474
       objectReference: {fileID: 0}
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -535,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.23673184
+      value: -0.23673189
       objectReference: {fileID: 0}
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -552,7 +573,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 20.390001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2028923184, guid: e412f01eff3a35e4a85da87cfa45b3b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e412f01eff3a35e4a85da87cfa45b3b8, type: 3}
 --- !u!4 &937850668 stripped
 Transform:
@@ -800,22 +822,22 @@ PrefabInstance:
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeOutTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeInTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeWaitTime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3828938205924232123, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.42
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 3828938205924232123, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
@@ -993,17 +1015,17 @@ PrefabInstance:
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeOutTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeInTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeWaitTime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3828938205924232123, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}

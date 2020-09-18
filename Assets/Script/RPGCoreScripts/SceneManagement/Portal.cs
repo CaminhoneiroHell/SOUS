@@ -47,8 +47,8 @@ namespace RPG.SceneManagement
             yield return fader.FadeOut(fadeOutTime);
 
             //Save
-            SavingWrapper saveWrapper = FindObjectOfType<SavingWrapper>();
-            saveWrapper.Save(); 
+            //SavingWrapper saveWrapper = FindObjectOfType<SavingWrapper>();
+            //saveWrapper.Save(); 
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
             //Load
@@ -56,8 +56,6 @@ namespace RPG.SceneManagement
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
-
-            FindObjectOfType<SavingWrapper>().Load();
 
             yield return new WaitForSeconds(fadeWaitTime);
 
@@ -94,6 +92,7 @@ namespace RPG.SceneManagement
                 if (portal == this) continue;
                 if (portal.destination != destination) continue;
 
+                print("Into the: " + gameObject.name);
                 return portal;
             }
             return null;
