@@ -21,7 +21,6 @@ public class PersistentObjectSpawner : MonoBehaviour
     {
         for(int i = 0; i < PersistentGameObject.Length; i++)
         {
-
             GameObject persistent =  Instantiate(PersistentGameObject[i]);
             DontDestroyOnLoad(persistent);
         }

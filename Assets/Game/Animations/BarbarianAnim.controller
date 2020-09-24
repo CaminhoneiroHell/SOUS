@@ -11,25 +11,25 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3001520791276609894}
-    m_Position: {x: -10, y: 180, z: 0}
+    m_Position: {x: 200, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3612699268128950664}
-    m_Position: {x: -10, y: 240, z: 0}
+    m_Position: {x: 200, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1479119287622399518}
-    m_Position: {x: -10, y: 300, z: 0}
+    m_Position: {x: 200, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8204535831004800850}
-    m_Position: {x: -10, y: 30, z: 0}
+    m_Position: {x: 200, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8053469456556111619}
-    m_Position: {x: -10, y: 80, z: 0}
+    m_Position: {x: 200, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -783428199458197263}
-    m_Position: {x: -10, y: 130, z: 0}
+    m_Position: {x: 200, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7060881502441028523}
-    m_Position: {x: -10, y: 350, z: 0}
+    m_Position: {x: 200, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1803453929694683511}
     m_Position: {x: 200, y: 100, z: 0}
@@ -39,6 +39,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 5740408059237361438}
     m_Position: {x: 210, y: -50, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2348788497986014868}
+    m_Position: {x: 440, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 679440806736922768}
@@ -145,6 +148,33 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: fd051ecb303d66845abc9fc6fb963fae,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-2348788497986014868
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Attack_Place_fast_Rdown_2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -3399172450791195981, guid: 235229bebba0b5b47b5f7b40c3424093,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

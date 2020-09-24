@@ -12,6 +12,11 @@ namespace RPG.SceneManagement
     {
         const string defaultSaveFile = "save";
 
+        //IEnumerator Start()
+        //{
+        //   yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+        //}
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.L))

@@ -61,13 +61,18 @@ namespace RPG.Core
 
             if (IsDead())
             {
-                Die(); SetAnimToDead();
+                //Dies on load
+
+                Die(); 
+                SetAnimToDead();
+                anim.SetBool("Dead", false);
             }
-            //else
-            //{
-            //    col.enabled = true;
-            //    anim.SetBool("Dead", false);
-            //}
+            else
+            {
+                //Ressurect on load
+                col.enabled = true;
+                anim.SetBool("Dead", false);
+            }
         }
     }
 }

@@ -100,7 +100,7 @@ namespace RPG.Control
 
         private void PatrolBehaviour()
         {
-            print("Calling PatrolBehaviour");
+            //print("Calling PatrolBehaviour");
             spotedPlayer = false;
 
             Vector3 nextPosition = guardPosition;

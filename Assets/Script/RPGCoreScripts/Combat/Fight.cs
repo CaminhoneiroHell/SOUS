@@ -16,17 +16,23 @@ namespace RPG.Combat
 
         float weaponDamage = 5f;
         [SerializeField] float attackDistanceOffset =4f;
-        
         [SerializeField] float timeAttackOffset = 2f;
-
         float timeSinceLastAttack = Mathf.Infinity;
 
         public bool targetIsInRange;
+
+        [SerializeField] GameObject weapon = null;
+        [SerializeField] Transform handPosition = null;
+        [SerializeField] AnimatorOverrideController weaponAnimator = null;
+
         private void Start()
         {
             mov = GetComponent<Mover>();
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
+
+            if(weapon != null && handPosition != null)
+                SpawnWeapon();
         }
 
         private void Update()
@@ -96,6 +102,12 @@ namespace RPG.Combat
                 target.TakeDamage(weaponDamage);
             }
 
+        }
+
+        private void SpawnWeapon()
+        {
+            Instantiate(weapon, handPosition);
+            animator.runtimeAnimatorController = weaponAnimator;
         }
     }
 
