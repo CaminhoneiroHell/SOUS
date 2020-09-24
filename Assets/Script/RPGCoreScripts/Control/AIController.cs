@@ -12,7 +12,7 @@ namespace RPG.Control
 
     public class AIController : MonoBehaviour
     {
-        Fight fight;
+        Fighter fight;
         Mover mover;
         Health health;
         GameObject player;
@@ -33,7 +33,7 @@ namespace RPG.Control
         void Start()
         {
             health = GetComponent<Health>();
-            fight = GetComponent<Fight>();
+            fight = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
             actScheduler = GetComponent<ActionScheduler>();
 

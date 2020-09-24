@@ -15,14 +15,14 @@ namespace RPG.Control
         Ray ray;
         RaycastHit hit;
         Mover mover;
-        Fight warrior;
+        Fighter warrior;
         CombatTarget target;
         Health health;
 
         void Start()
         {
             mover = GetComponent<Mover>();
-            warrior = GetComponent<Fight>();
+            warrior = GetComponent<Fighter>();
             health = GetComponent<Health>();
 
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
