@@ -14,17 +14,18 @@ namespace RPG.Combat
         Health target;
         ActionScheduler scheduler;
 
-        float weaponDamage = 5f;
-        [SerializeField] float attackDistanceOffset =4f;
+        //float weaponDamage = 5f;
+        //[SerializeField] float attackDistanceOffset =4f;
+
         [SerializeField] float timeAttackOffset = 2f;
         float timeSinceLastAttack = Mathf.Infinity;
 
         public bool targetIsInRange;
 
-        [SerializeField] GameObject weapon = null;
         [SerializeField] Transform handPosition = null;
-
-        [SerializeField] AnimatorOverrideController weaponAnimator = null;
+        [SerializeField] Weapon defaultWeapon = null;
+        
+        Weapon currentWeapon = null;
 
         private void Start()
         {
@@ -32,8 +33,7 @@ namespace RPG.Combat
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
 
-            if (weapon != null && handPosition != null)
-                SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update()
@@ -64,7 +64,7 @@ namespace RPG.Combat
 
         private bool TargetIsInRange()
         {
-            targetIsInRange = TargetDistance() <= attackDistanceOffset;
+            targetIsInRange = TargetDistance() <= currentWeapon.GetRange();
             return targetIsInRange;
         }
 
@@ -90,26 +90,25 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
-            //animator.SetTrigger("Out of Moving to attack position");
+            animator.SetTrigger("OutOfAttack");
             GetComponent<Mover>().Cancel();
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            weapon.SpawnWeapon(handPosition, animator);
         }
 
         //Called by trigger event on the attack animation
         void Hit_AnimationEvent()
         {
-            //print("Hit animation!!");
             if (target != null)
             {
-                target.TakeDamage(weaponDamage);
+                target.TakeDamage(currentWeapon.GetDamage());
             }
-
         }
 
-        private void SpawnWeapon()
-        {
-            Instantiate(weapon, handPosition);
-            animator.runtimeAnimatorController = weaponAnimator;
-        }
     }
 
 }

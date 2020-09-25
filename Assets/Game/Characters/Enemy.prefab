@@ -39,9 +39,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
+  playerDistance: 0
   playerDistanceToChase: 5
   timeSinceLastSawnPlayer: Infinity
   suspiciousTime: 5
+  patrolSpeedFraction: 0.4
   timeSinceReachedLastNode: Infinity
   patrolTimeEachNode: 4
 --- !u!1001 &4600088847849228791
@@ -114,6 +116,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7389507112651452681, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
+--- !u!4 &5991677250856533109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7849909225841866114, guid: 6dc4cf4496348884d8ee27743ae38562,
+    type: 3}
+  m_PrefabInstance: {fileID: 4600088847849228791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9167040276834539000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +137,20 @@ PrefabInstance:
       propertyPath: attackDistanceOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e,
+        type: 2}
+    - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: handPosition
+      value: 
+      objectReference: {fileID: 5991677250856533109}
+    - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e,
+        type: 2}
     - target: {fileID: 1262865719947935218, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: m_Name

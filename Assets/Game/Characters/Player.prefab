@@ -2227,11 +2227,17 @@ PrefabInstance:
     - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 158852, guid: 6e0c6be634d018645bd23333a4e5ad69, type: 3}
+      objectReference: {fileID: 11400000, guid: acc7f68a1a4340e47a2782d45843dfb9,
+        type: 2}
     - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
       propertyPath: handPosition
       value: 
       objectReference: {fileID: 7914102331914184303}
+    - target: {fileID: 1851710156, guid: ca11417e2ede1d24abd71ed1e1b025cf, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e,
+        type: 2}
     - target: {fileID: 1262865719947935218, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: m_Name
