@@ -12,11 +12,18 @@ namespace RPG.Combat
         [SerializeField] float damage = 5f;
         [SerializeField] float range = 2f;
 
-        public void SpawnWeapon(Transform handTransform, Animator animator)
+        [SerializeField] bool isRightHand = true;
+
+        public void SpawnWeapon(Transform rHand, Transform lHand, Animator animator)
         {
             if(weapon != null)
             {
-                Instantiate(weapon, handTransform);
+                Transform hTransform;
+
+                if (isRightHand) hTransform = rHand;
+                else hTransform = lHand;
+
+                Instantiate(weapon, hTransform);
             }
 
             if(weaponOverrideAnimator != null)

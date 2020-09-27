@@ -22,7 +22,8 @@ namespace RPG.Combat
 
         public bool targetIsInRange;
 
-        [SerializeField] Transform handPosition = null;
+        [SerializeField] Transform rightHand = null;
+        [SerializeField] Transform leftHand = null;
         [SerializeField] Weapon defaultWeapon = null;
         
         Weapon currentWeapon = null;
@@ -97,7 +98,7 @@ namespace RPG.Combat
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            weapon.SpawnWeapon(handPosition, animator);
+            weapon.SpawnWeapon(rightHand, leftHand, animator);
         }
 
         //Called by trigger event on the attack animation
