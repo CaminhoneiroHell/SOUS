@@ -9,13 +9,11 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        Mover mov;
-        Animator animator;
-        Health target;
         ActionScheduler scheduler;
+        Animator animator;
+        Mover mov;
 
-        //float weaponDamage = 5f;
-        //[SerializeField] float attackDistanceOffset =4f;
+        [SerializeField] Health target;
 
         [SerializeField] float timeAttackOffset = 2f;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -24,9 +22,9 @@ namespace RPG.Combat
 
         [SerializeField] Transform rightHand = null;
         [SerializeField] Transform leftHand = null;
+
         [SerializeField] Weapon defaultWeapon = null;
-        
-        Weapon currentWeapon = null;
+        [SerializeField] Weapon currentWeapon = null;
 
         private void Start()
         {
@@ -76,15 +74,14 @@ namespace RPG.Combat
 
         public void Attack(GameObject combatTarget)
         {
-            //print(" Come take a taste of my cold steel, jackal!"); 
             target = combatTarget.GetComponent<Health>();
         }
 
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
-
             Health targetToTest = combatTarget.GetComponent<Health>();
+
             return targetToTest != null && !targetToTest.IsDead();
         }
 
@@ -106,10 +103,20 @@ namespace RPG.Combat
         {
             if (target != null)
             {
+                Debug.Log("Punched");
                 target.TakeDamage(currentWeapon.GetDamage());
             }
         }
 
+        //Called by trigger event on the projectile attack animation
+        void Shoot_AnimationEvent()
+        {
+            if (target != null)
+            {
+                Debug.Log("Shoot anim called");
+                currentWeapon.LaunchProjectile(rightHand, leftHand, target);
+            }
+        }
     }
 
 }
