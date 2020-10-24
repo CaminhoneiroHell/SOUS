@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1851710157}
   - component: {fileID: 7142011430661638397}
   - component: {fileID: 1483575387457930015}
+  - component: {fileID: 2211907464634742490}
   m_Layer: 0
   m_Name: CharacterBasePrefab
   m_TagString: Untagged
@@ -104,9 +105,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8e8813dab6f7241af6beb6ddb2e167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistanceOffset: 4
+  target: {fileID: 0}
   timeAttackOffset: 1
   targetIsInRange: 0
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
+  defaultWeapon: {fileID: 0}
+  currentWeapon: {fileID: 0}
 --- !u!114 &1851710157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +150,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueIdentifier: 
+--- !u!114 &2211907464634742490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262865719947935218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9acbf225297564e82291e04975f29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  CharacterClass: 0
+  progression: {fileID: 11400000, guid: 019c691a373a9ce49b6e866ff0d17daa, type: 2}

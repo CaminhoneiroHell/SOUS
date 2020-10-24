@@ -42,7 +42,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("ASSSSSSSSSSSSSSSSSSSSSSSSSS");
         if (other.gameObject.tag == "Thug")
         {
             other.GetComponent<Health>().TakeDamage(damage);
