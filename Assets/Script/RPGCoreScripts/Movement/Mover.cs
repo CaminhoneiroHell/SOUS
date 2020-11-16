@@ -15,7 +15,6 @@ namespace RPG.Movement
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
 
-
         NavMeshAgent navMesh;
         ActionScheduler scheduler;
         Health health;

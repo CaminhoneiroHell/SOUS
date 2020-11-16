@@ -38,6 +38,7 @@ namespace RPG.Control
         {
             if (health.IsDead()) return;
 
+            if (!mover.isActiveAndEnabled) return;
             if (InteractiveWithCombat()) return;
             if (InteractiveWithMovement()) return;
         }
