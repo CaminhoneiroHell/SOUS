@@ -1,6 +1,6 @@
 ﻿namespace RPG.Stats
 {
-    enum ECharacterClass
+    public enum ECharacterClass
     {
         Warrior,
         Zombie,

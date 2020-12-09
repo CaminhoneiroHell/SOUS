@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b26a3f2190ec6742aee53358beed37e, type: 3}
-  m_Name: Simple_Bow
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  weaponOverrideAnimator: {fileID: 22100000, guid: 5565d4f72d4cc004bb5e3af4cea2d6c6,
+  weaponOverrideAnimator: {fileID: 22100000, guid: 8bfa2a36e9e5c1c4d89989a5c278e69c,
     type: 2}
-  weapon: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356, type: 3}
-  damage: 5
-  range: 10
-  isRightHand: 0
-  projectile: {fileID: 9222879548414890020, guid: e2ccab838fbebf741af82296db24ed0f,
-    type: 3}
+  equipedWeapon: {fileID: 158852, guid: 6e0c6be634d018645bd23333a4e5ad69, type: 3}
+  damage: 15
+  range: 4
+  isRightHand: 1
+  projectile: {fileID: 0}

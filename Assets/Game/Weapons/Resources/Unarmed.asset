@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b26a3f2190ec6742aee53358beed37e, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
   weaponOverrideAnimator: {fileID: 0}
+  equipedWeapon: {fileID: 0}
   damage: 5
   range: 2
+  isRightHand: 1
+  projectile: {fileID: 0}

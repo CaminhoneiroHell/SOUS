@@ -10,6 +10,11 @@
         [SerializeField] int level = 1;
         [SerializeField] ECharacterClass CharacterClass;
         [SerializeField] Progression progression = null;
+
+        public float GetHealth()
+        {
+            return progression.GetHealth(CharacterClass, level);
+        }
     }
 }
 

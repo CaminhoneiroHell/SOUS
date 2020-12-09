@@ -9,6 +9,7 @@ namespace RPG.Movement
     using UnityEngine.UIElements;
     using RPG.Core;
     using RPG.Saving;
+    using RPG.Resources;
 
     public class Mover : MonoBehaviour, IAction, ISaveable
     {

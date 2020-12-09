@@ -2,7 +2,7 @@
 namespace RPG.Core
 {
     using UnityEngine;
-    
+
     public class ActionScheduler : MonoBehaviour
     {
         IAction currentAction;

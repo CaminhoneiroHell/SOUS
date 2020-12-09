@@ -9,6 +9,7 @@ namespace RPG.Control
     using RPG.Movement;
     using RPG.Combat;
     using RPG.Core;
+    using RPG.Resources;
 
     public class PlayerController : MonoBehaviour
     {

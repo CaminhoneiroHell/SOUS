@@ -9,6 +9,7 @@ namespace RPG.Control
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using RPG.Resources;
 
     public class AIController : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 ﻿using RPG.Core;
 using UnityEngine;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -8,7 +9,7 @@ namespace RPG.Combat
     {
 
         [SerializeField] AnimatorOverrideController weaponOverrideAnimator = null;
-        [SerializeField] GameObject weapon = null;
+        [SerializeField] GameObject equipedWeapon = null;
 
         [SerializeField] float damage = 5f;
         [SerializeField] float range = 2f;
@@ -16,18 +17,42 @@ namespace RPG.Combat
         [SerializeField] bool isRightHand = true;
         [SerializeField] Projectile projectile = null;
 
+        const string weaponName = "Weapon";
+
         public void SpawnWeapon(Transform rHand, Transform lHand, Animator animator)
         {
-            if(weapon != null)
+            DestroyOldWeapon(rHand, lHand);
+
+            if(equipedWeapon != null)
             {
                 Transform hTransform = GetTransform(rHand, lHand);
-                Instantiate(weapon, hTransform);
+                GameObject weapon = Instantiate(equipedWeapon, hTransform);
+                weapon.name = weaponName;
             }
 
+            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
             if (weaponOverrideAnimator != null)
             {
                 animator.runtimeAnimatorController = weaponOverrideAnimator;
             }
+            else if (overrideController != null)
+            {
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+            }
+        }
+
+        private void DestroyOldWeapon(Transform rHand,Transform lHand)
+        {
+            Transform oldWeapon = rHand.Find(weaponName);
+            
+            if (oldWeapon == null)
+                oldWeapon = lHand.Find(weaponName);
+
+            if (oldWeapon == null)
+                return;
+
+            oldWeapon.name = "DESTROYING"; //This solve a solve a bug that destroy the current weapon we are picking
+            Destroy(oldWeapon.gameObject);
         }
 
         private Transform GetTransform(Transform rHand, Transform lHand)
@@ -42,6 +67,7 @@ namespace RPG.Combat
         {
             return projectile != null;
         }
+
         public void LaunchProjectile(Transform rHand, Transform lHand, Health target)
         {
             Projectile projectileInstance = Instantiate(projectile,
@@ -55,12 +81,11 @@ namespace RPG.Combat
         {
             return damage;
         }
+
         public float GetRange()
         {
             return range;
         }
-
-
     }
 }
  

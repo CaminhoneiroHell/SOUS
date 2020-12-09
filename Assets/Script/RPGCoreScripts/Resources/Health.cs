@@ -1,12 +1,11 @@
 ﻿
 
-namespace RPG.Core
+namespace RPG.Resources
 {
-    using RPG.Combat;
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
     using RPG.Saving;
+    using RPG.Stats;
+    using RPG.Core;
 
     public class Health : MonoBehaviour, ISaveable
     {
@@ -19,6 +18,8 @@ namespace RPG.Core
             anim = GetComponent<Animator>();
             col = GetComponent<Collider>();
             actionScheduler = GetComponent<ActionScheduler>();
+
+            healthPoints = GetComponent<BaseStats>().GetHealth();   //Issues
         }
 
         public void TakeDamage(float dmg)

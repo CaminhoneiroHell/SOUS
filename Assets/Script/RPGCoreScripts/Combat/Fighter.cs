@@ -4,10 +4,12 @@ using UnityEngine;
 using RPG.Movement;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Saving;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         ActionScheduler scheduler;
         Animator animator;
@@ -26,13 +28,19 @@ namespace RPG.Combat
         [SerializeField] Weapon defaultWeapon = null;
         [SerializeField] Weapon currentWeapon = null;
 
+
         private void Start()
         {
             mov = GetComponent<Mover>();
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
 
-            EquipWeapon(defaultWeapon);
+            //Weapon resourceWeapon = Resources.Load<Weapon>("Unarmed");
+            if(currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
+
         }
 
         private void Update()
@@ -116,6 +124,18 @@ namespace RPG.Combat
                 Debug.Log("Shoot anim called");
                 currentWeapon.LaunchProjectile(rightHand, leftHand, target);
             }
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 

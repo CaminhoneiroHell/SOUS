@@ -3,14 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using RPG.Resources;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1;
     [SerializeField] Health target = null;
+    [SerializeField] bool isHoming = true;
     private float damage;
 
+    private void Start()
+    {
+        transform.LookAt(GetAimLocation());
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,7 +24,8 @@ public class Projectile : MonoBehaviour
         if (target == null)
             return;
 
-        transform.LookAt(GetAimLocation());
+        if (isHoming && !target.IsDead()) { transform.LookAt(GetAimLocation()); }
+    
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -42,10 +49,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Thug")
-        {
-            other.GetComponent<Health>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        if (other.GetComponent<Health>() != target) return;
+        if (target.IsDead()) return;
+
+        target.TakeDamage(damage);
+        Destroy(gameObject);
+        
     }
 }   
