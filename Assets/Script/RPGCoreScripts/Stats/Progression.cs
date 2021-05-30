@@ -7,28 +7,33 @@
     {
         [SerializeField] ProgressionCharacterClass[] characterClass = null;
 
-        public float GetHealth(ECharacterClass charClassEnum, int level)
+        public float GetStat(Stat stat, ECharacterClass characterClasses, int level)
         {
-            foreach (ProgressionCharacterClass progressionCharacter in characterClass)
+            foreach (ProgressionCharacterClass progressionClass in characterClass)
             {
-                if (progressionCharacter.characterClass == charClassEnum)
+                if (progressionClass.characterClass != characterClasses) continue;
+
+                foreach (ProgressionStat progressionStat in progressionClass.stats)
                 {
-                    //return progressionCharacter.health[level - 1];
+                    if (progressionStat.stat != stat) continue;
+
+                    if (progressionStat.levels.Length < level) continue;
+
+                    return progressionStat.levels[level - 1];
                 }
             }
-
-            return 1;
+            return 0;
         }
 
         [System.Serializable]
         public class ProgressionCharacterClass
         {
             public ECharacterClass characterClass;
-            public Progressionstat[] stats;
+            public ProgressionStat[] stats;
         }
 
         [System.Serializable]
-        public class Progressionstat
+        public class ProgressionStat
         {
             public Stat stat;
             public float[] levels;

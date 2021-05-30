@@ -19,7 +19,7 @@ namespace RPG.Resources
             col = GetComponent<Collider>();
             actionScheduler = GetComponent<ActionScheduler>();
 
-            healthPoints = GetComponent<BaseStats>().GetHealth();   //Issues
+            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);   //Issues
         }
 
         public void TakeDamage(GameObject instigator, float dmg)
@@ -35,7 +35,7 @@ namespace RPG.Resources
 
         public float GetPercentage()
         {
-            return 100 * (healthPoints / GetComponent<BaseStats>().GetHealth());
+            return 100 * (healthPoints / GetComponent<BaseStats>().GetStat(Stat.Health));
         }
 
         private void GainExperience(GameObject instigator)
@@ -43,7 +43,7 @@ namespace RPG.Resources
             Experience experience = instigator.GetComponent<Experience>();
             if (experience == null) return;
 
-            experience.GainExperience(GetComponent<BaseStats>().GetExperience());
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
 
         private void Die()

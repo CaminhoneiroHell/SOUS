@@ -7,13 +7,13 @@
     public class BaseStats : MonoBehaviour
     {
         [Range(1, 99)]
-        [SerializeField] int level = 1;
-        [SerializeField] ECharacterClass CharacterClass;
+        [SerializeField] int startingLevel = 1;
+        [SerializeField] ECharacterClass characterClass;
         [SerializeField] Progression progression = null;
 
-        public float GetHealth()
+        public float GetStat(Stat stat)
         {
-            return progression.GetHealth(CharacterClass, level);
+            return progression.GetStat(stat, characterClass, startingLevel);
         }
 
         public float GetExperience()
