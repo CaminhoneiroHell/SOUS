@@ -3,13 +3,17 @@
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-
+    using System;
     public class BaseStats : MonoBehaviour
     {
         [Range(1, 99)]
         [SerializeField] int startingLevel = 1;
         [SerializeField] ECharacterClass characterClass;
         [SerializeField] Progression progression = null;
+
+        [SerializeField] GameObject levelUpParticleEffect = null;
+
+        public event Action onLevelUp;
 
         int currentLevel = 0;
 
@@ -29,9 +33,17 @@
             if (newLevel > currentLevel)
             {
                 currentLevel = newLevel;
-                print("Levelled Up!");
+                LevelUpEffect();
+                onLevelUp();
             }
         }
+
+        private void LevelUpEffect()
+        {
+            Instantiate(levelUpParticleEffect, transform);
+        }
+
+
 
         public int GetLevel()
         {

@@ -14,20 +14,27 @@ namespace RPG.Resources
         Animator anim;
         Collider col;
         ActionScheduler actionScheduler;
-
-        private void Start(){
-
-            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+        [SerializeField] float regenerationPercentage = 70;
+        private void Start()
+        {
+            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
             if (healthPoints < 0)
             {
                 healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
             }
 
+            //GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
+            //healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            //if (healthPoints < 0)
+            //{
+            //    healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            //}
+
             anim = GetComponent<Animator>();
             col = GetComponent<Collider>();
             actionScheduler = GetComponent<ActionScheduler>();
 
-            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);   //Issues
+            //healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);   //Issues
         }
 
         public void TakeDamage(GameObject instigator, float dmg)
@@ -39,6 +46,12 @@ namespace RPG.Resources
                 GainExperience(instigator);
                 Die();
             }
+        }
+
+        private void RegenerateHealth()
+        {
+            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
+            healthPoints = Mathf.Max(healthPoints, regenHealthPoints);
         }
 
         public float GetPercentage()

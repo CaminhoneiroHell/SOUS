@@ -694,47 +694,6 @@ Transform:
   m_Father: {fileID: 2530455075645624912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.668199e-13, y: -9.003158e-13, z: -103.77889}
---- !u!136 &361584255
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715849977467398730}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.19
-  m_Height: 0.7
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
---- !u!114 &3581554363760274214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715849977467398730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9d4f2e3e1c3be24da141d7e873674c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3810486943243873811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715849977467398730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9acbf225297564e82291e04975f29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  CharacterClass: 0
-  progression: {fileID: 11400000, guid: 019c691a373a9ce49b6e866ff0d17daa, type: 2}
 --- !u!1 &2745707250608145414
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +851,45 @@ Transform:
   m_Father: {fileID: 92993046299603843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.0000021275005, y: 0.000002804558, z: 128.7803}
+--- !u!136 &361584255
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715849977467398730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.19
+  m_Height: 0.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.4, z: 0}
+--- !u!114 &3581554363760274214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715849977467398730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d4f2e3e1c3be24da141d7e873674c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4493479348763463741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715849977467398730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a1b6167b4b013428a1e690be8bdc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
 --- !u!1 &3845234457611022978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2342,12 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2211907464634742490, guid: ca11417e2ede1d24abd71ed1e1b025cf,
+        type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 6741576541534965910, guid: 364f9dbd3c025764f9dd205b8beac91d,
+        type: 3}
     - target: {fileID: 7142011430661638397, guid: ca11417e2ede1d24abd71ed1e1b025cf,
         type: 3}
       propertyPath: healthPoints
