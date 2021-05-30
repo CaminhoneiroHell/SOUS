@@ -15,6 +15,11 @@
         {
             return progression.GetHealth(CharacterClass, level);
         }
+
+        public float GetExperience()
+        {
+            return 10;
+        }
     }
 }
 

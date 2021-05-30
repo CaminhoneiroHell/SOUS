@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] bool isHoming = true;
     private float damage;
 
+    GameObject instigator = null;
+
     private void Start()
     {
         transform.LookAt(GetAimLocation());
@@ -29,10 +31,11 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    public void SetTarget(Health target, float damage)
+    public void SetTarget(Health target, float damage, GameObject instigator)
     {
         this.target = target;
         this.damage = damage;
+        this.instigator = instigator;
     }
 
     Vector3 GetAimLocation()
@@ -52,7 +55,7 @@ public class Projectile : MonoBehaviour
         if (other.GetComponent<Health>() != target) return;
         if (target.IsDead()) return;
 
-        target.TakeDamage(damage);
+        target.TakeDamage(instigator, damage);
         Destroy(gameObject);
         
     }

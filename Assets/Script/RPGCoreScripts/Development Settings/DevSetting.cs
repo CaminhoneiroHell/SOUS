@@ -9,18 +9,17 @@ namespace RPG.DevelopmentSettings
     {
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.F9))
             {
                 Time.timeScale = 1f;
             }
-            if (Input.GetKeyDown(KeyCode.F2))
+            if (Input.GetKeyDown(KeyCode.F10))
             {
 
                 Time.timeScale = 2f;
             }
-            if (Input.GetKeyDown(KeyCode.F3))
+            if (Input.GetKeyDown(KeyCode.F11))
             {
-
                 Time.timeScale = 10;
             }
         }

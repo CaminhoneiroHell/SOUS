@@ -117,7 +117,7 @@ namespace RPG.Combat
             if (target != null)
             {
                 Debug.Log("Punched");
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, currentWeapon.GetDamage());
             }
         }
 
@@ -127,7 +127,7 @@ namespace RPG.Combat
             if (target != null)
             {
                 Debug.Log("Shoot anim called");
-                currentWeapon.LaunchProjectile(rightHand, leftHand, target);
+                currentWeapon.LaunchProjectile(rightHand, leftHand, target, gameObject);
             }
         }
 

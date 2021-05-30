@@ -83,7 +83,6 @@ public class TPMover : MonoBehaviour//, IAction
     {
         //scheduler.StartAction(this);
         anim.SetTrigger("Attack");
-
         //transform.LookAt(target.transform);
     }
 
@@ -92,10 +91,6 @@ public class TPMover : MonoBehaviour//, IAction
     {
         if(target == null)
         {
-
-            //print("TargetIsInRange processing");
-            //float distanceToObstacle = 0;
-
             // Cast a sphere wrapping character controller 4 meters forward
             // to see if it is about to hit anything.
             if (Physics.SphereCast(transform.position, 2, transform.forward, out hit, violenceRadius))
@@ -105,23 +100,10 @@ public class TPMover : MonoBehaviour//, IAction
                     target = hit.collider.gameObject.GetComponent<Health>();
                     print("Thug processing" + target.gameObject.name);
                 }
-
-                //distanceToObstacle = hit.distance;
-                //Debug.Log("Is range of the barbarian: " + hit.collider.gameObject.name + " and the distance is:" 
-                //    + distanceToObstacle);
             }
         }
 
     }
-
-    //BUG: Not working
-    //public void Cancel()
-    //{
-    //    target = null;
-    //    anim.SetTrigger("OutOfAttack");
-    //    print("cancel called on TOMover");
-    //}
-
 
     [SerializeField] float violenceRadius = 5f;
     private void OnDrawGizmos()
@@ -135,7 +117,7 @@ public class TPMover : MonoBehaviour//, IAction
         if (target != null)
         {
             Debug.Log("Punched");
-            target.TakeDamage(/*currentWeapon.GetDamage()*/20f);
+            target.TakeDamage(gameObject, 20f);
         }
     }
 }

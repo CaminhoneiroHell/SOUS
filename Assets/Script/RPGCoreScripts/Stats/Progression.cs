@@ -9,11 +9,11 @@
 
         public float GetHealth(ECharacterClass charClassEnum, int level)
         {
-            foreach(ProgressionCharacterClass progressionCharacter in characterClass)
+            foreach (ProgressionCharacterClass progressionCharacter in characterClass)
             {
-                if(progressionCharacter.characterClass == charClassEnum)
+                if (progressionCharacter.characterClass == charClassEnum)
                 {
-                    return progressionCharacter.health[level - 1];
+                    //return progressionCharacter.health[level - 1];
                 }
             }
 
@@ -24,8 +24,14 @@
         public class ProgressionCharacterClass
         {
             public ECharacterClass characterClass;
-            public  float[] health;
+            public Progressionstat[] stats;
         }
 
+        [System.Serializable]
+        public class Progressionstat
+        {
+            public Stat stat;
+            public float[] levels;
+        }
     }
 }
