@@ -1,6 +1,4 @@
-﻿
-
-namespace RPG.Resources
+﻿namespace RPG.Stats
 {
     using UnityEngine;
     using UnityEngine.UI;

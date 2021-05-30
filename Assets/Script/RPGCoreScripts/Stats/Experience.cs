@@ -1,4 +1,4 @@
-namespace RPG.Resources
+namespace RPG.Stats
 {
     using UnityEngine;
     using RPG.Saving;
