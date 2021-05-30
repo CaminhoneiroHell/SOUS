@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
-
+using RPG.Core;
 
 namespace RPG.SceneManagement
 {
@@ -12,10 +12,21 @@ namespace RPG.SceneManagement
     {
         const string defaultSaveFile = "save";
 
-        //IEnumerator Start()
+        [SerializeField] float fadeInTime = 0.2f;
+
+        //private void Awake()
         //{
-        //   yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+        //    StartCoroutine(LoadLastScene());
         //}
+
+        //private IEnumerator LoadLastScene()
+        //{
+        //    //Fader fader = FindObjectOfType<Fader>();
+        //    //StartCoroutine(fader.FadeInOut());
+        //    yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+        //    //yield return fader.FadeIn(fadeInTime);
+        //}
+
 
         void Update()
         {
@@ -27,6 +38,11 @@ namespace RPG.SceneManagement
             if (Input.GetKeyDown(KeyCode.F1))
             {
                 Save();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                Delete();
             }
         }
 
@@ -40,6 +56,12 @@ namespace RPG.SceneManagement
             //Calol to saving system load
             GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
+
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
+        }
+
     }
 
 }

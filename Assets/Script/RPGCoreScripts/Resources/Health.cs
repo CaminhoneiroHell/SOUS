@@ -9,12 +9,20 @@ namespace RPG.Resources
 
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] float healthPoints = 100f;
+        float healthPoints = -1f;
+
         Animator anim;
         Collider col;
         ActionScheduler actionScheduler;
 
         private void Start(){
+
+            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            if (healthPoints < 0)
+            {
+                healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+            }
+
             anim = GetComponent<Animator>();
             col = GetComponent<Collider>();
             actionScheduler = GetComponent<ActionScheduler>();
