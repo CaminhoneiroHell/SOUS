@@ -106,6 +106,11 @@ namespace RPG.Combat
             weapon.SpawnWeapon(rightHand, leftHand, animator);
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+
         //Called by trigger event on the attack animation
         void Hit_AnimationEvent()
         {
