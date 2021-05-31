@@ -6,6 +6,7 @@ using UnityEngine.AI;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -114,20 +115,22 @@ namespace RPG.Combat
         //Called by trigger event on the attack animation
         void Hit_AnimationEvent()
         {
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (target != null)
             {
                 Debug.Log("Punched");
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 
         //Called by trigger event on the projectile attack animation
         void Shoot_AnimationEvent()
         {
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (target != null)
             {
                 Debug.Log("Shoot anim called");
-                currentWeapon.LaunchProjectile(rightHand, leftHand, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
             }
         }
 
