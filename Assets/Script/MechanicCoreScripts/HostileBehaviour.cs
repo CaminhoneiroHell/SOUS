@@ -50,11 +50,11 @@ namespace UniversalZero.Core
             }
         }
 
-        void SetDefaultLayerAnimationEventTrigger(){
+        void SetDefaultLayerAnimationEvent(){
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
 
-        void SetTalhoLayerAnimationEventTrigger(){
+        void SetTalhoLayerAnimationEvent(){
             gameObject.layer = LayerMask.NameToLayer("Talho");
         }
 

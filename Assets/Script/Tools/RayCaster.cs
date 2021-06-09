@@ -46,7 +46,16 @@ public class RayCaster : MonoBehaviour
     
     public void Execute_RayCasterShooter()
     {
-        CastRayFoward(Color.red, LayerMask.GetMask("Talho") | LayerMask.GetMask("Fendente"));
+        CastRayFoward(Color.red,
+            LayerMask.GetMask("Talho") |
+            LayerMask.GetMask("Fendente") |
+            LayerMask.GetMask("CortePerna") |
+            LayerMask.GetMask("RevCortePerna") |
+            LayerMask.GetMask("Flanco") |
+            LayerMask.GetMask("RevFlanco") |
+            LayerMask.GetMask("Chef") |
+            LayerMask.GetMask("RevChef")
+        );
         //CastRayBackward();
         //CastRayDown();
         //CastRayLeft();
@@ -60,7 +69,7 @@ public class RayCaster : MonoBehaviour
     //{
 
     //}
-    bool defenseFlag;
+    bool defenceFlag;
     public Vector3 CastRayFoward(Color color, int layerMask)
     {
         RaycastHit hitFoward;
@@ -75,54 +84,70 @@ public class RayCaster : MonoBehaviour
             Debug.DrawRay(transform.position, fwd * hitFoward.distance, color);
             //Debug.Log("Distance from the collider to object who shooted raycast is: " + hitFoward.distance);
             // print("The collided tag is: " + hitFoward.collider.tag);
-            
-            
-            if(hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Talho")) != 0 && !defenseFlag)
+
+
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("Talho") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) { return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefTalho();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Fendente")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("Fendente") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) { return hitFoward.point;}
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefFendente();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("CortePerna")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("CortePerna") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) { return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefCortePerna();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevCortePerna")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("RevCortePerna") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) {  return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefRevPerna();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Flanco")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("Flanco") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) {  return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefFlanco();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevFlanco")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("RevFlanco") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) {  return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefRevFlanco();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Chef")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("Chef") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) {  return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefChef();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
-            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevChef")) != 0 && !defenseFlag)
+            if (hitFoward.distance < 2 && (LayerMask.GetMask("RevChef") & (1 << hitFoward.collider.gameObject.layer)) > 0)
             {
+                if (defenceFlag) {  return hitFoward.point; }
+
                 FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefReversoChef();
-                defenseFlag = true;
+                defenceFlag = true;
             }
 
             //print("The collided layer is: " + hitFoward.collider.gameObject.layer);
@@ -131,7 +156,7 @@ public class RayCaster : MonoBehaviour
         }
         else
         {
-            defenseFlag = false;
+            defenceFlag = false;
             print("missed");
             Debug.DrawRay(transform.position, fwd * maxDistance, Color.green);
             return transform.position + (transform.forward * maxDistance);

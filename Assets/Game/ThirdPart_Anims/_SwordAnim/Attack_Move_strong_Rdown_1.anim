@@ -106018,7 +106018,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.75
-    functionName: SetTalhoLayerAnimationEventTrigger
+    functionName: SetTalhoLayerAnimationEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -106032,7 +106032,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.98333335
-    functionName: SetDefaultLayerAnimationEventTrigger
+    functionName: SetDefaultLayerAnimationEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

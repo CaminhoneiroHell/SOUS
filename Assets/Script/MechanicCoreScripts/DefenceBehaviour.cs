@@ -35,11 +35,12 @@ namespace UniversalZero.Core
         }
         public void DefCortePerna()
         {
+            print("DefCortePerna defense called");
             animator.SetTrigger("DefCortePerna");
         }
         public void DefRevPerna()
         {
-            animator.SetTrigger("DefRevPerna");
+            animator.SetTrigger("DefRevCortePerna");
         }
         public void DefFlanco()
         {
@@ -55,7 +56,7 @@ namespace UniversalZero.Core
         }
         public void DefReversoChef()
         {
-            animator.SetTrigger("DefReversoChef");
+            animator.SetTrigger("DefRevChef");
         }
 
 
