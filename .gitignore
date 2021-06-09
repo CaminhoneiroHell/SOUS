@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # Animation files folder 
 Assets/Game/ThirdPart_Anims/FightingAnimsetPro/*
+
+# Skybox files folder 
+Assets/Game/SkyBox/*

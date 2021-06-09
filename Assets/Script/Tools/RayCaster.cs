@@ -1,255 +1,217 @@
-﻿//using System;
-//using UnityEngine;
-//using UnityEngine.UI;
-//using System.Collections;
+﻿using System;
+using UnityEngine;
+using System.Collections;
 
-//public interface IRayCaster
-//{
-//    Vector3 CastRayFoward();
+public class RayCaster : MonoBehaviour
+{
 
-//    Vector3 CastRayBackward();
+    #region Coordination_Variables
+    float maxDistance = 100;
+    float distanceTofloorFwd;
+    float distanceToFloorbwd;
+    float distanceToFloorUp;
+    float distanceToFloorDwn;
+    float distanceToFloorRight;
+    float distanceToFloorLeft;
+    #endregion
 
-//    Vector3 CastRayUp();
+    #region LayerBitwise_Variables
+    //static int layerMask_cylinder = 1 << 11;
+    //static int layerMask_capsule = 1 << 10;
+    //static int layerMask_sphere = 1 << 9;
+    // int bitLayerPack_cylinder = Convert.ToInt32(layerMask_cylinder);
+    // int bitLayerPack_capsule = Convert.ToInt32(layerMask_capsule);
+    // int bitLayerPack_sphere = Convert.ToInt32(layerMask_sphere);
 
-//    Vector3 CastRayDown(int layerMask);
-
-//    Vector3 CastRayRight();
-
-//    Vector3 CastRayLeft();
-//}
-
-//public enum RayCastDirection
-//{
-//    FOWARD,
-//    FOWARD2,
-//    BEHIND,
-//    LEFT,
-//    RIGHT,
-//    UP,
-//    DOWN
-//}
-
-//public class RayCaster : MonoBehaviour, IRayCaster
-//{
-//    //const int badGround = 9;
-//    //const int road = 8;
-
-//    public Text stageName;
-//    public Image crossHair;
-//    public RayCastDirection rcstDir;
-
-//    #region Coordination_Variables
-//    float maxDistance = 100;
-//    float distanceTofloorFwd;
-//    float distanceToFloorbwd;
-//    float distanceToFloorUp;
-//    float distanceToFloorDwn;
-//    float distanceToFloorRight;
-//    float distanceToFloorLeft;
-//    #endregion
-
-//    #region LayerBitwise_Variables
-//    Int32 packed = 0;
-//    #endregion
-
-//    private void Start()
-//    {
-//        packed = (1 << 8 | 1 << 9);
-//        //stagePacked = 
-//        //UnityEngine.Debug.Log("Pack result" + Convert.ToString(packed, 2 ).PadLeft(32, '0'));
-//    }
-
-//    #region raycasters
-
-//    public int groundType;
-//    public float distanceFromGround;
+    Int32 packed = 0;
+    #endregion
+    private void Start() {
+        // layerMask &= ~(layerMask); 
+        
+        // packed = packed | layerMask_cylinder << 20;
+        // packed = packed | (layerMask_cylinder << 21);
+        // packed = packed | (bitLayerPack_capsule << 21);
+        // packed = packed | (bitLayerPack_sphere << 12);
 
 
-
-//    //Again...
-//    private float timer = 0.0f;
-//    private int seconds;
-//    void TimerCounter()
-//    {
-//        timer += Time.deltaTime;
-//        seconds = (int)(timer % 60);
-//    }
-
-//    public Vector3 CastRayDown(int layerMask)
-//    {
-//        RaycastHit hitDown;
-//        Vector3 fwd = transform.TransformDirection(Vector3.down);
-//        if (Physics.Raycast(transform.position, fwd, out hitDown, maxDistance, layerMask))
-//        {
-//            distanceFromGround = hitDown.distance;
-//            groundType = hitDown.collider.gameObject.layer;
-
-//            if (hitDown.collider.gameObject.layer == GameData.road)
-//            {
-//                Debug.DrawRay(transform.position, fwd * hitDown.distance, Color.green);
-//            }
-//            else if (hitDown.collider.gameObject.layer == GameData.badGround)
-//            {
-//                Debug.DrawRay(transform.position, fwd * hitDown.distance, Color.yellow);
-//            }
-
-//            return hitDown.point;
-//        }
-//        else
-//        {
-//            print("missed");
-//            //missed = true; //Reset player position on the last checkpoint 
-//            Debug.DrawRay(transform.position, fwd * maxDistance, Color.red);
-//            TimerCounter();
-
-//            return transform.position + (transform.forward * maxDistance);
-//        }
-//    }
+        packed = (1 << 11 | 1 << 9 );
+        UnityEngine.Debug.Log("Pack result" + Convert.ToString(packed, 2 ).PadLeft(32, '0'));
+    }
 
 
-//    public Vector3 CastRayFoward()
-//    {
-//        RaycastHit hitFoward;
-//        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-//        if (Physics.Raycast(transform.position, fwd, out hitFoward, maxDistance))
-//        {
-//            Debug.DrawRay(transform.position, fwd * hitFoward.distance, Color.blue);
-//            //print("Hitting: " + hitFoward.collider.gameObject.name);s
-//            return hitFoward.point;
-//        }
-//        else
-//        {
-//            Debug.DrawRay(transform.position, fwd * maxDistance, Color.blue);
-//            return transform.position + (transform.forward * maxDistance);
-//        }
-//    }
+    void Update()
+    {
+        Execute_RayCasterShooter();
+    }
+    
+    public void Execute_RayCasterShooter()
+    {
+        CastRayFoward(Color.red, LayerMask.GetMask("Talho") | LayerMask.GetMask("Fendente"));
+        //CastRayBackward();
+        //CastRayDown();
+        //CastRayLeft();
+        // CastRayRight();
+        //CastRayUp();
+    }
 
-//    public Vector3 CastRayFoward(Color color)
-//    {
-//        RaycastHit hitFoward;
-//        Vector3 bwd = transform.TransformDirection(Vector3.forward) * maxDistance;
-//        Debug.DrawRay(transform.position, bwd, color);
-//        if (Physics.Raycast(transform.position, bwd, out hitFoward))
-//        {
-//            distanceToFloorbwd = hitFoward.distance;
-//            print("The collided tag is: " + hitFoward.collider.tag);
-//            stageName.text = ("Stage Name: \n " + hitFoward.collider.tag);
-//            crossHair.color = Color.red;
+    #region raycasters
 
-//            if (hitFoward.collider.tag == "Farm")
-//            {
-//                StartCoroutine(LoadFarm());
-//            }
+    //void UnpackBitsFromLayerMask()
+    //{
 
+    //}
+    bool defenseFlag;
+    public Vector3 CastRayFoward(Color color, int layerMask)
+    {
+        RaycastHit hitFoward;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(transform.position, fwd, out hitFoward, maxDistance, layerMask ))
+        {
+            //Debug.Log("We hit: " + hit.transform.name);
+            // distanceTofloorFwd = hitFoward.collider.gameObject.layer = layerMask;
+            // maxDistance = distanceTofloorFwd;
+            //print(Convert.ToString(layerMask, 2).PadLeft(32, '0'));
 
-//            return hitFoward.point;
-//        }
-//        //print("Miss");
-//        StopCoroutine(LoadFarm());
-//        crossHair.color = Color.white;
-//        stageName.text = "Stage Name";
-//        return transform.position + (transform.forward * -maxDistance);
-//    }
+            Debug.DrawRay(transform.position, fwd * hitFoward.distance, color);
+            //Debug.Log("Distance from the collider to object who shooted raycast is: " + hitFoward.distance);
+            // print("The collided tag is: " + hitFoward.collider.tag);
+            
+            
+            if(hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Talho")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefTalho();
+                defenseFlag = true;
+            }
 
-//    IEnumerator LoadFarm()
-//    {
-//        yield return new WaitForSeconds(2.5f);
-//        //GameManager.Instance.ChangeState(State.MooMooFarm_race);
-//    }
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Fendente")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefFendente();
+                defenseFlag = true;
+            }
 
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("CortePerna")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefCortePerna();
+                defenseFlag = true;
+            }
 
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevCortePerna")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefRevPerna();
+                defenseFlag = true;
+            }
 
-//    public Vector3 CastRayBackward()
-//    {
-//        RaycastHit hitBackward;
-//        Vector3 bwd = transform.TransformDirection(Vector3.forward) * -maxDistance;
-//        Debug.DrawRay(transform.position, bwd, Color.red);
-//        if (Physics.Raycast(transform.position, bwd, out hitBackward))
-//        {
-//            distanceToFloorbwd = hitBackward.distance;
-//            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitBackward.distance);
-//            print("The collided tag is: " + hitBackward.collider.tag);
-//            return hitBackward.point;
-//        }
-//        return transform.position + (transform.forward * -maxDistance);
-//    }
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Flanco")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefFlanco();
+                defenseFlag = true;
+            }
 
-//    public Vector3 CastRayUp()
-//    {
-//        RaycastHit hitUp;
-//        Vector3 up = transform.TransformDirection(Vector3.up) * maxDistance;
-//        Debug.DrawRay(transform.position, up, Color.blue);
-//        if (Physics.Raycast(transform.position, up, out hitUp))
-//        {
-//            hitUp.distance = distanceToFloorUp;
-//            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitUp.distance);
-//            print("The collided tag is: " + hitUp.collider.tag);
-//            return hitUp.point;
-//        }
-//        return transform.position + (transform.up * maxDistance);
-//    }
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevFlanco")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefRevFlanco();
+                defenseFlag = true;
+            }
 
-//    public Vector3 CastRayRight()
-//    {
-//        RaycastHit hitRight;
-//        Vector3 rght = transform.TransformDirection(Vector3.right) * maxDistance;
-//        Debug.DrawRay(transform.position, rght, Color.green);
-//        if (Physics.Raycast(transform.position, rght, out hitRight))
-//        {
-//            hitRight.distance = distanceToFloorRight;
-//            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitRight.distance);
-//            print("The collided tag is: " + hitRight.collider.tag);
-//            return hitRight.point;
-//        }
-//        return transform.position + (transform.right * maxDistance);
-//    }
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("Chef")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefChef();
+                defenseFlag = true;
+            }
 
-//    public Vector3 CastRayLeft()
-//    {
-//        RaycastHit hitLeft;
-//        Vector3 lft = transform.TransformDirection(Vector3.right) * -maxDistance;
-//        Debug.DrawRay(transform.position, lft, Color.red);
-//        if (Physics.Raycast(transform.position, lft, out hitLeft))
-//        {
-//            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitLeft.distance);
-//            //print("The collided tag is: " + hitLeft.collider.tag);
-//            hitLeft.distance = distanceToFloorLeft;
-//            return hitLeft.point;
-//        }
-//        return transform.position + (transform.right * -maxDistance);
-//    }
+            if (hitFoward.distance < 2 && (hitFoward.collider.gameObject.layer << LayerMask.GetMask("RevChef")) != 0 && !defenseFlag)
+            {
+                FindObjectOfType<UniversalZero.Core.DefenceBehaviour>().DefReversoChef();
+                defenseFlag = true;
+            }
 
-//    #endregion
+            //print("The collided layer is: " + hitFoward.collider.gameObject.layer);
+            //print("Hitting: " + hitFoward.collider.gameObject.name);
+            return hitFoward.point;
+        }
+        else
+        {
+            defenseFlag = false;
+            print("missed");
+            Debug.DrawRay(transform.position, fwd * maxDistance, Color.green);
+            return transform.position + (transform.forward * maxDistance);
+        }
+    }
 
-//    void UnpackBitsFromLayerMask()
-//    {
+    public Vector3 CastRayBackward()
+    {
+        RaycastHit hitBackward;
+        Vector3 bwd = transform.TransformDirection(Vector3.forward) * -maxDistance;
+        Debug.DrawRay(transform.position, bwd, Color.red);
+        if (Physics.Raycast(transform.position, bwd, out hitBackward))
+        {
+            distanceToFloorbwd = hitBackward.distance;
+            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitBackward.distance);
+            print("The collided tag is: " + hitBackward.collider.tag);
+            return hitBackward.point;
+        }
+        return transform.position + (transform.forward * -maxDistance);
+    }
 
-//    }
+    public Vector3 CastRayUp()
+    {
+        RaycastHit hitUp;
+        Vector3 up = transform.TransformDirection(Vector3.up) * maxDistance;
+        Debug.DrawRay(transform.position, up, Color.blue);
+        if (Physics.Raycast(transform.position, up, out hitUp))
+        {
+            hitUp.distance = distanceToFloorUp;
+            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitUp.distance);
+            print("The collided tag is: " + hitUp.collider.tag);
+            return hitUp.point;
+        }
+        return transform.position + (transform.up * maxDistance);
+    }
 
-//    public void Execute_RayCasterShooter(RayCastDirection rcstDir)
-//    {
-//        switch (rcstDir)
-//        {
-//            case RayCastDirection.DOWN:
-//                CastRayDown(packed);
-//                break;
-//            case RayCastDirection.FOWARD:
-//                CastRayFoward();
-//                break;
-//            case RayCastDirection.FOWARD2:
-//                CastRayFoward(Color.blue);
-//                break;
-//            default:
-//                break;
-//        }
-//    }
+    public Vector3 CastRayDown()
+    {
+        RaycastHit hitDown;
+        Vector3 down = transform.TransformDirection(Vector3.up) * -maxDistance;
+        if (Physics.Raycast(transform.position, down, out hitDown))
+        {
+            hitDown.distance = distanceToFloorDwn;
+            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitDown.distance);
+            //print("The collided tag is: " + hitDown.collider.tag);
+            return hitDown.point;
+        }
 
+        return transform.position + (transform.up * -maxDistance);
+    }
 
-//    float frontAngle;
-//    void Update()
-//    {
-//        //Execute_RayCasterShooter();
+    public Vector3 CastRayRight()
+    {
+        RaycastHit hitRight;
+        Vector3 rght = transform.TransformDirection(Vector3.right) * maxDistance;
+        Debug.DrawRay(transform.position, rght, Color.green);
+        if (Physics.Raycast(transform.position, rght, out hitRight))
+        {
+            hitRight.distance = distanceToFloorRight;
+            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitRight.distance);
+            print("The collided tag is: " + hitRight.collider.tag);
+            return hitRight.point;
+        }
+        return transform.position + (transform.right * maxDistance);
+    }
 
-//    }
+    public Vector3 CastRayLeft()
+    {
+        RaycastHit hitLeft;
+        Vector3 lft = transform.TransformDirection(Vector3.right) * -maxDistance;
+        Debug.DrawRay(transform.position, lft, Color.red);
+        if (Physics.Raycast(transform.position, lft, out hitLeft))
+        {
+            Debug.Log("Distance from the collider to object who shooted raycast is: " + hitLeft.distance);
+            //print("The collided tag is: " + hitLeft.collider.tag);
+            hitLeft.distance = distanceToFloorLeft;
+            return hitLeft.point;
+        }
+        return transform.position + (transform.right * -maxDistance);
+    }
 
-//}
+    #endregion
+}

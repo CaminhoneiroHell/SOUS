@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Thug
   layers:
   - Default
   - TransparentFX
@@ -11,22 +12,22 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Talho
+  - Fendente
+  - CortePerna
+  - RevCortePerna
+  - Flanco
+  - RevFlanco
+  - Chef
+  - RevChef
+  - DefTalho
+  - DefFendente
+  - DefCortePerna
+  - DefRevPerna
+  - DefFlanco
+  - DefRevFlanco
+  - DefChef
+  - DefRevChef
   - 
   - 
   - 
