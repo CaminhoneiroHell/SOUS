@@ -10,11 +10,11 @@ using RPG.Stats;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
-        ActionScheduler scheduler;
-        Animator animator;
         Mover mov;
+        Animator animator;
+        ActionScheduler scheduler;
 
         [SerializeField] Health target;
 
@@ -118,7 +118,6 @@ namespace RPG.Combat
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (target != null)
             {
-                Debug.Log("Punched");
                 target.TakeDamage(gameObject, damage);
             }
         }
@@ -129,7 +128,6 @@ namespace RPG.Combat
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (target != null)
             {
-                Debug.Log("Shoot anim called");
                 currentWeapon.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
             }
         }
@@ -144,6 +142,14 @@ namespace RPG.Combat
             string weaponName = (string)state;
             Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+            }
         }
     }
 

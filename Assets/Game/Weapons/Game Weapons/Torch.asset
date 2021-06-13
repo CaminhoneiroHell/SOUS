@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b26a3f2190ec6742aee53358beed37e, type: 3}
+  m_Name: Torch
+  m_EditorClassIdentifier: 
+  weaponOverrideAnimator: {fileID: 22100000, guid: 4f30706ef0d085b46bec04cb165acccb,
+    type: 2}
+  equipedWeapon: {fileID: 6313620915062873935, guid: d1ea86d4f9bf7ae41ab99e20d82822b5,
+    type: 3}
+  damage: 8
+  range: 10
+  isRightHand: 1
+  projectile: {fileID: -3804687428378385647, guid: 3274cb68a5ef5ea4cb43c267d4f47038,
+    type: 3}
