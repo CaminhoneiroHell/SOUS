@@ -20,6 +20,16 @@ namespace RPG.Movement
         ActionScheduler scheduler;
         Health health;
 
+
+        void Awake()
+        {
+            navMesh = gameObject.GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+            scheduler = GetComponent<ActionScheduler>();
+            health = GetComponent<Health>();
+        }
+
+
         void Update()
         {
             navMesh.enabled = !health.IsDead();
@@ -61,15 +71,6 @@ namespace RPG.Movement
             float speed = localVelocity.z;
             animator.SetFloat("fowardSpeed", speed);    
         }
-
-        void Start()
-        {
-            navMesh = gameObject.GetComponent<NavMeshAgent>();
-            animator = GetComponent<Animator>();
-            scheduler = GetComponent<ActionScheduler>();
-            health = GetComponent<Health>();
-        }
-
         public void Cancel()
         {
 
