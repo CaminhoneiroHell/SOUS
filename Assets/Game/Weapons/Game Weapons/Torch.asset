@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 2}
   equipedWeapon: {fileID: 6313620915062873935, guid: d1ea86d4f9bf7ae41ab99e20d82822b5,
     type: 3}
-  damage: 8
+  damage: 20
   range: 10
   isRightHand: 1
   projectile: {fileID: -3804687428378385647, guid: 3274cb68a5ef5ea4cb43c267d4f47038,

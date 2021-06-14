@@ -4917,6 +4917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ad6eb2ac4498d45bef8e3990d05e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  direction: {x: -14.65, y: 30.8, z: 47.71}
 --- !u!1 &6313620914504462696
 GameObject:
   m_ObjectHideFlags: 0
@@ -14625,3 +14627,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ad6eb2ac4498d45bef8e3990d05e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  direction: {x: -14.65, y: 30.8, z: 47.71}
