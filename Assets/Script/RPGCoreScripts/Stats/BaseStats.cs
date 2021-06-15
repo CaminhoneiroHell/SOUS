@@ -1,9 +1,11 @@
-﻿namespace RPG.Stats
+﻿using System;
+using UnityEngine;
+using GameDevTV.Utils;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace RPG.Stats
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using System;
     public class BaseStats : MonoBehaviour
     {
         [Range(1, 99)]
@@ -15,13 +17,24 @@
 
         public event Action onLevelUp;
 
-        int currentLevel = 0;
+        LazyValue<int> currentLevel;
+
+        Experience experience;
+        private void Awake()
+        {
+            experience = GetComponent<Experience>();
+            currentLevel = new LazyValue<int>(CalculateLevel);
+        }
 
         [SerializeField] bool shouldUseModifiers = false;
         private void Start()
         {
-            currentLevel = CalculateLevel();
-            Experience experience = GetComponent<Experience>();
+            currentLevel.ForceInit();
+        }
+
+
+        private void OnEnable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
@@ -31,9 +44,9 @@
         private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
-            if (newLevel > currentLevel)
+            if (newLevel > currentLevel.value)
             {
-                currentLevel = newLevel;
+                currentLevel.value = newLevel;
                 LevelUpEffect();
                 onLevelUp();
             }
@@ -48,11 +61,11 @@
 
         public int GetLevel()
         {
-            if (currentLevel < 1)
+            if (currentLevel.value < 1)
             {
-                currentLevel = CalculateLevel();
+                currentLevel.value = CalculateLevel();
             }
-            return currentLevel;
+            return currentLevel.value;
         }
 
         public float GetStat(Stat stat)
@@ -119,6 +132,14 @@
             }
 
             return penultimateLevel + 1;
+        }
+
+        private void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.onExperienceGained -= UpdateLevel;
+            }
         }
     }
 }

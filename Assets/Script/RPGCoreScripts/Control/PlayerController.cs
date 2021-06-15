@@ -20,7 +20,7 @@ namespace RPG.Control
         CombatTarget target;
         Health health;
 
-        void Start()
+        void Awake()
         {
             mover = GetComponent<Mover>();
             warrior = GetComponent<Fighter>();

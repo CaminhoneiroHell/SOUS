@@ -7,7 +7,8 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
 using RPG.Stats;
-
+using GameDevTV.Utils;
+using System;
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
@@ -27,20 +28,29 @@ namespace RPG.Combat
         [SerializeField] Transform leftHand = null;
 
         [SerializeField] Weapon defaultWeapon = null;
-        [SerializeField] Weapon currentWeapon = null;
+        //[SerializeField] Weapon currentWeapon = null;
+        [SerializeField] LazyValue<Weapon> currentWeapon;
 
 
-        private void Start()
+        private void Awake()
         {
             mov = GetComponent<Mover>();
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
 
-            if(currentWeapon == null)
-            {
-                EquipWeapon(defaultWeapon);
-            }
+            currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
 
+        }
+
+        private Weapon SetupDefaultWeapon()
+        {
+            AttachWeapon(defaultWeapon);
+            return defaultWeapon;
+        }
+
+        private void Start()
+        {
+            currentWeapon.ForceInit();
         }
 
         private void Update()
@@ -71,7 +81,7 @@ namespace RPG.Combat
 
         private bool TargetIsInRange()
         {
-            targetIsInRange = TargetDistance() <= currentWeapon.GetRange();
+            targetIsInRange = TargetDistance() <= currentWeapon.value.GetRange();
             return targetIsInRange;
         }
 
@@ -102,7 +112,13 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
+            currentWeapon.value = weapon;
+            AttachWeapon(weapon);
+        }
+
+        private void AttachWeapon(Weapon weapon)
+        {
+            Animator animator = GetComponent<Animator>();
             weapon.SpawnWeapon(rightHand, leftHand, animator);
         }
 
@@ -127,13 +143,13 @@ namespace RPG.Combat
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (target != null)
             {
-                currentWeapon.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
+                currentWeapon.value.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
             }
         }
 
         public object CaptureState()
         {
-            return currentWeapon.name;
+            return currentWeapon.value.name;
         }
 
         public void RestoreState(object state)
@@ -147,7 +163,7 @@ namespace RPG.Combat
         {
             if (stat == Stat.Damage)
             {
-                yield return currentWeapon.GetDamage();
+                yield return currentWeapon.value.GetDamage();
             }
         }
 
@@ -155,7 +171,7 @@ namespace RPG.Combat
         {
             if (stat == Stat.Damage)
             {
-                yield return currentWeapon.GetPercentageBonus();
+                yield return currentWeapon.value.GetPercentageBonus();
             }
         }
 
