@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class TPMover : MonoBehaviour//, IAction
 {
     bool isRunning = false; bool isAttacking = false;
-    float RunningFactor { get { return isRunning ? 1f : 0.5f; } }
+    float RunningFactor = 1f; //{ get { return isRunning ? 1f : 0.5f; } }
     Vector3 direction;
     Animator anim;
     Fighter warrior;
@@ -53,6 +53,7 @@ public class TPMover : MonoBehaviour//, IAction
 
     [SerializeField] float timeAttackOffset = 3f;
     [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
+
     // Update is called once per frame
     void Update()
     {

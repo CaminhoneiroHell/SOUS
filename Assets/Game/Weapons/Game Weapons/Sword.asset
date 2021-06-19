@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 2}
   equipedWeapon: {fileID: 158852, guid: 6e0c6be634d018645bd23333a4e5ad69, type: 3}
   damage: 15
-  range: 4
+  range: 2
   isRightHand: 1
   projectile: {fileID: 0}
   percentageBonus: 10
