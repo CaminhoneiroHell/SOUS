@@ -23,10 +23,10 @@ namespace RPG.Resources
         //Unity Event using parameters:
         //[SerializeField] TakeDamageEvent takeDamage;
 
-        [System.Serializable]
-        public class TakeDamageEvent : UnityEvent<float>
-        {
-        }
+        //[System.Serializable]
+        //public class TakeDamageEvent : UnityEvent<float>
+        //{
+        //}
 
         private void Awake()
         {
@@ -112,7 +112,7 @@ namespace RPG.Resources
 
         public bool IsDead()
         {
-            return healthPoints.value <= 0 && anim.GetBool("Dead");
+            return healthPoints.value <= 0; // && anim.GetBool("Dead");
         }
 
         //Animation event caller

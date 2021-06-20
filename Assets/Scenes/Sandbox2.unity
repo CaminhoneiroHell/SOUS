@@ -19371,7 +19371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorMappings: []
   maxNavMeshProjectionDistance: 1
-  maxNavPathLength: 40
 --- !u!136 &1176366055
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27111,6 +27110,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597689163635816621, guid: e412f01eff3a35e4a85da87cfa45b3b8,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597689163635816621, guid: e412f01eff3a35e4a85da87cfa45b3b8,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597689163635816621, guid: e412f01eff3a35e4a85da87cfa45b3b8,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7681544048832463089, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}

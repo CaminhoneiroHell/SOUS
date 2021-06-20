@@ -47,7 +47,7 @@ namespace RPG.SceneManagement
 
             //Save
             //SavingWrapper saveWrapper = FindObjectOfType<SavingWrapper>();
-            saveWrapper.Save();
+            //saveWrapper.Save();
 
             Fader fader = FindObjectOfType<Fader>();
 
@@ -69,7 +69,7 @@ namespace RPG.SceneManagement
             newPlayerController.enabled = true;
 
             //Load
-            saveWrapper.Load();
+            //saveWrapper.Load();
 
             if (fader == null)
                 fader = FindObjectOfType<Fader>();
