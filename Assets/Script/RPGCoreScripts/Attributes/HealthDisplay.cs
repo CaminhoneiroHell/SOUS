@@ -1,6 +1,6 @@
 ﻿
 
-namespace RPG.Resources
+namespace RPG.Attributes
 {
     using UnityEngine;
     using UnityEngine.UI;

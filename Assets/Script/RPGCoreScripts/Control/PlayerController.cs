@@ -6,7 +6,7 @@ using System;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
-using RPG.Resources;
+using RPG.Attributes;
 using UnityEngine.EventSystems;
 namespace RPG.Control
 {

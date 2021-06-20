@@ -5,7 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Resources;
+using RPG.Attributes;
 using GameDevTV.Utils;
 
 namespace RPG.Control
@@ -18,8 +18,8 @@ namespace RPG.Control
         GameObject player;
         ActionScheduler actScheduler;
         [SerializeField] PatrolPath path = null;
+        [SerializeField] LazyValue<Vector3> guardPosition = null;
 
-        [SerializeField] LazyValue<Vector3> guardPosition;
         float wayPointDistanceTolerance = 1f;
 
         [SerializeField] float playerDistance;

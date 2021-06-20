@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
-using RPG.Resources;
+using RPG.Attributes;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour

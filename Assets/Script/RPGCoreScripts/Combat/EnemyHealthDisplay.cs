@@ -3,7 +3,7 @@
 namespace RPG.Combat
 {
     using System;
-    using RPG.Resources;
+    using RPG.Attributes;
     using UnityEngine;
     using UnityEngine.UI;
 

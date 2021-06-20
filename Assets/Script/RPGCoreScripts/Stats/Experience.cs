@@ -1,8 +1,8 @@
+using UnityEngine;
+using RPG.Saving;
+using System;
 namespace RPG.Stats
 {
-    using UnityEngine;
-    using RPG.Saving;
-    using System;
 
     public class Experience : MonoBehaviour, ISaveable
     {

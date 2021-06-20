@@ -1,11 +1,9 @@
-﻿namespace RPG.Stats
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System;
+
+namespace RPG.Stats
 {
-    using UnityEngine;
-    using UnityEngine.UI;
-    using System;
-    using RPG.Saving;
-    using RPG.Stats;
-    using RPG.Core;
 
     public class ExperienceDisplay : MonoBehaviour
     {
