@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Saving;
 using RPG.Core;
 
 namespace RPG.SceneManagement
@@ -12,7 +11,7 @@ namespace RPG.SceneManagement
     {
         const string defaultSaveFile = "save";
 
-        [SerializeField] float fadeInTime = 0.2f;
+        //[SerializeField] float fadeInTime = 0.2f;
 
         //private void Awake()
         //{

@@ -3,6 +3,7 @@ using GameDevTV.Utils;
 using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
+using UnityEngine.Events;
 
 
 namespace RPG.Resources
@@ -10,12 +11,22 @@ namespace RPG.Resources
 
     public class Health : MonoBehaviour, ISaveable
     {
-        LazyValue<float> healthPoints;
+        [SerializeField] LazyValue<float> healthPoints;
 
         Animator anim;
         Collider col;
         ActionScheduler actionScheduler;
         [SerializeField] float regenerationPercentage = 70;
+
+        [SerializeField] UnityEvent takeDamage;
+
+        //Unity Event using parameters:
+        //[SerializeField] TakeDamageEvent takeDamage;
+
+        [System.Serializable]
+        public class TakeDamageEvent : UnityEvent<float>
+        {
+        }
 
         private void Awake()
         {
@@ -29,15 +40,6 @@ namespace RPG.Resources
             actionScheduler = GetComponent<ActionScheduler>();
 
             healthPoints.ForceInit();
-
-            //GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
-            //healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
-            //if (healthPoints < 0)
-            //{
-            //    healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
-            //}
-
-            //healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);   //Issues
         }
 
         private float GetInitialHealth()
@@ -61,6 +63,11 @@ namespace RPG.Resources
                 GainExperience(instigator);
                 Die();
             }
+            else
+            {
+                //takeDamage.Invoke(dmg);
+                takeDamage.Invoke();
+            }
         }
 
         private void RegenerateHealth()
@@ -81,7 +88,12 @@ namespace RPG.Resources
 
         public float GetPercentage()
         {
-            return 100 * (healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health));
+            return 100 * GetFraction();
+        }
+
+        public float GetFraction()
+        {
+            return (healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health));
         }
 
         private void GainExperience(GameObject instigator)
@@ -100,7 +112,7 @@ namespace RPG.Resources
 
         public bool IsDead()
         {
-            return healthPoints.value <= 0; //&& anim.GetBool("Dead");
+            return healthPoints.value <= 0 && anim.GetBool("Dead");
         }
 
         //Animation event caller

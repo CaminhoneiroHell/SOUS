@@ -28,6 +28,9 @@ namespace RPG.Control
         }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
+        [SerializeField] float maxNavMeshProjectionDistance = 1f;
+        //[SerializeField] float maxNavPathLength = 40f;
+
         void Awake()
         {
             mover = GetComponent<Mover>();
@@ -54,9 +57,8 @@ namespace RPG.Control
 
             if (!mover.isActiveAndEnabled) return;
             if (InteractWithUI()) return;
-            //if (InteractiveWithCombat()) return;
             if (InteractWithComponent()) return;
-            if (InteractiveWithMovement()) return;
+            if (InteractWithMovement()) return;
 
 
             SetCursor(CursorType.None);
@@ -71,6 +73,34 @@ namespace RPG.Control
             }
             return false;
         }
+
+        //private bool InterfactWithCombat()
+        //{
+        //    RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+        //    foreach (RaycastHit hit in hits)
+        //    {
+        //        target = hit.transform.GetComponent<CombatTarget>();
+        //        if (target == null) continue;
+
+        //        GameObject targetGO = target.gameObject;
+
+        //        if (!warrior.CanAttack(targetGO))
+        //        {
+        //            continue;
+        //        }
+
+        //        if(hit.collider.tag == "Thug")
+        //        {
+        //            SetCursor(CursorType.Combat);
+        //            if (Input.GetMouseButton(0))
+        //            {
+        //                warrior.Attack(targetGO);
+        //            }
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
         private bool InteractWithComponent()
         {
@@ -103,49 +133,55 @@ namespace RPG.Control
             return hits;
         }
 
-        //private bool InterfactWithCombat()
+        private bool InteractWithMovement()
+        {
+            Vector3 target;
+            bool hasHit = RaycastNavMesh(out target);
+            if (hasHit)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    mover.MoveTo(target);
+                }
+                SetCursor(CursorType.Movement);
+                return true;
+            }
+            return false;
+        }
+
+        //bool InteractiveWithMovement()
         //{
-        //    RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-        //    foreach (RaycastHit hit in hits)
+        //    if (Physics.Raycast(ray, out hit))
         //    {
-        //        target = hit.transform.GetComponent<CombatTarget>();
-        //        if (target == null) continue;
-
-        //        GameObject targetGO = target.gameObject;
-
-        //        if (!warrior.CanAttack(targetGO))
+        //        SetCursor(CursorType.Movement);
+        //        if (Input.GetMouseButton(0))
         //        {
-        //            continue;
+        //            ray = GetMouseRay();
+        //            mover.MoveTo(hit.point/*, 1f*/);
         //        }
-
-        //        if(hit.collider.tag == "Thug")
-        //        {
-        //            SetCursor(CursorType.Combat);
-        //            if (Input.GetMouseButton(0))
-        //            {
-        //                warrior.Attack(targetGO);
-        //            }
-        //            return true;
-        //        }
+        //        return true;
         //    }
+        //    print("Nothing to do...");
         //    return false;
         //}
 
-        bool InteractiveWithMovement()
+        private bool RaycastNavMesh(out Vector3 target)
         {
-            if (Physics.Raycast(ray, out hit))
-            {
-                SetCursor(CursorType.Movement);
-                if (Input.GetMouseButton(0))
-                {
-                    ray = GetMouseRay();
-                    mover.MoveTo(hit.point/*, 1f*/);
-                }
-                return true;
-            }
-            print("Nothing to do...");
-            return false;
+            target = new Vector3();
+
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            if (!hasHit) return false;
+
+            NavMeshHit navMeshHit;
+            bool hasCastToNavMesh = NavMesh.SamplePosition(
+                hit.point, out navMeshHit, maxNavMeshProjectionDistance, NavMesh.AllAreas);
+            if (!hasCastToNavMesh) return false;
+
+            target = navMeshHit.position;
+            return true;
         }
+
 
         private void SetCursor(CursorType type)
         {

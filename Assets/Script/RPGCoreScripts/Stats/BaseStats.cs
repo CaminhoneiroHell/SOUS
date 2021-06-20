@@ -12,12 +12,11 @@ namespace RPG.Stats
         [SerializeField] int startingLevel = 1;
         [SerializeField] ECharacterClass characterClass;
         [SerializeField] Progression progression = null;
-
         [SerializeField] GameObject levelUpParticleEffect = null;
 
         public event Action onLevelUp;
 
-        LazyValue<int> currentLevel;
+        [SerializeField] LazyValue<int> currentLevel;
 
         Experience experience;
         private void Awake()

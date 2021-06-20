@@ -1,17 +1,15 @@
-﻿
+﻿using RPG.Combat;
+using RPG.Core;
+using RPG.Movement;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using RPG.Resources;
+using GameDevTV.Utils;
 
 namespace RPG.Control
 {
-    using RPG.Combat;
-    using RPG.Core;
-    using RPG.Movement;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using RPG.Resources;
-    using GameDevTV.Utils;
-
     public class AIController : MonoBehaviour
     {
         Fighter fight;
@@ -21,7 +19,7 @@ namespace RPG.Control
         ActionScheduler actScheduler;
         [SerializeField] PatrolPath path = null;
 
-        LazyValue<Vector3> guardPosition;
+        [SerializeField] LazyValue<Vector3> guardPosition;
         float wayPointDistanceTolerance = 1f;
 
         [SerializeField] float playerDistance;

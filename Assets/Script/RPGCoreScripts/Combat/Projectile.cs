@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float maxLifeTime = 10;
     [SerializeField] GameObject[] destroyOnHit = null;
-    [SerializeField] float lifeAfterImpact = 2;
+    //[SerializeField] float lifeAfterImpact = 2;
 
     GameObject instigator = null;
 

@@ -6,48 +6,45 @@ namespace RPG.Core
 {
     public class Fader : MonoBehaviour
     {
-        CanvasGroup cg;
-        [SerializeField] float fadeTime = 0.3f;
-        // Start is called before the first frame update
+        CanvasGroup canvasGroup;
+        Coroutine currentActiveFade = null;
 
-        private void Start()
-        {
-            cg = GetComponent<CanvasGroup>();
-            //StartCoroutine(FadeInOut());
+        private void Awake() {
+            canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public IEnumerator FadeOut(float time)
+        public void FadeOutImmediate()
         {
-            if(cg == null)
-                cg = GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 1;
+        }
 
-            while (cg.alpha < 1)
+        public Coroutine FadeOut(float time)
+        {
+            return Fade(1, time);
+        }
+
+        public Coroutine FadeIn(float time)
+        {
+            return Fade(0, time);
+        }
+
+        public Coroutine Fade(float target, float time)
+        {
+            if (currentActiveFade != null)
             {
-                print("cgalphaincrease");
-                cg.alpha +=  Time.deltaTime / time;
+                StopCoroutine(currentActiveFade);
+            }
+            currentActiveFade = StartCoroutine(FadeRoutine(target, time));
+            return currentActiveFade;
+        }
+
+        private IEnumerator FadeRoutine(float target, float time)
+        {
+            while (!Mathf.Approximately(canvasGroup.alpha, target))
+            {
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, target, Time.deltaTime / time);
                 yield return null;
             }
-        }
-
-        public IEnumerator FadeIn(float time)
-        {
-            if (cg == null)
-                cg = GetComponent<CanvasGroup>();
-            
-            cg.alpha = 1;
-            while (cg.alpha > 0)
-            {
-                print("FadeIn");
-                print("cgalphadiscount");
-                cg.alpha -= Time.deltaTime / time;
-                yield return null;
-            }
-        }
-
-        public IEnumerator FadeInOut()
-        {
-            yield return FadeOut(fadeTime);
-            yield return FadeIn(fadeTime);
         }
     }
 }
