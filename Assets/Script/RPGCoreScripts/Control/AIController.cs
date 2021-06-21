@@ -19,6 +19,11 @@ namespace RPG.Control
         ActionScheduler actScheduler;
         [SerializeField] PatrolPath path = null;
 
+
+        int currentWayPointIntex = 0;
+        [SerializeField] float timeSinceReachedLastNode = Mathf.Infinity;
+        [SerializeField] float patrolTimeEachNode = 4f;
+
         LazyValue<Vector3> guardPosition = null;
         float wayPointDistanceTolerance = 1f;
 
@@ -129,9 +134,6 @@ namespace RPG.Control
             }
         }
 
-        int currentWayPointIntex = 0;
-        [SerializeField] float timeSinceReachedLastNode = Mathf.Infinity;
-        [SerializeField] float patrolTimeEachNode = 4f;
         private Vector3 GetCurrentWayPoint()
         {
             return path.GetWaypoint(currentWayPointIntex);

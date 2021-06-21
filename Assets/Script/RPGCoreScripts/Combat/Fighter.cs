@@ -68,10 +68,11 @@ namespace RPG.Combat
                 else
                 {
                     //Being called around 27 frames p/ second
-                    scheduler.StartAction(this);
                     mov.Stop();
                     if (timeAttackOffset < timeSinceLastAttack)
                     {
+                        scheduler.StartAction(this);
+                        print("Moveto called on update!");
                         transform.LookAt(target.transform);
                         animator.SetTrigger("Attack");
                         timeSinceLastAttack = 0;

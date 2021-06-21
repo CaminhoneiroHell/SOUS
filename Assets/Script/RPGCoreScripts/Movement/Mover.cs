@@ -19,6 +19,7 @@ namespace RPG.Movement
         NavMeshAgent navMesh;
         ActionScheduler scheduler;
         Health health;
+        Animator animator;
 
 
         void Awake()
@@ -36,13 +37,10 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        public void MoveTo(Vector3 destination/*, float speedFraction*/)
+        public void MoveTo(Vector3 destination)
         {
-            //target.transform.position = destination;
-
             scheduler.StartAction(this);
             navMesh.destination = destination;
-            //navMesh.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             navMesh.isStopped = false;
         }
 
@@ -62,8 +60,6 @@ namespace RPG.Movement
             //print(" Nothing shall remain thy name.");
         }
 
-
-        Animator animator;
         private void UpdateAnimator()
         {
             Vector3 velocity = navMesh.velocity;

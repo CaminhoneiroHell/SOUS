@@ -9,7 +9,7 @@ using UnityEngine.Events;
 namespace RPG.Attributes
 {
 
-    public class Health : MonoBehaviour/*, ISaveable*/
+    public class Health : MonoBehaviour, ISaveable
     {
         LazyValue<float> healthPoints;
 
@@ -106,13 +106,13 @@ namespace RPG.Attributes
 
         private void Die()
         {
-            anim.SetTrigger("Die");
             actionScheduler.CancelCurrentAction();
+            anim.SetTrigger("Die");
         }
 
         public bool IsDead()
         {
-            return healthPoints.value <= 0; // && anim.GetBool("Dead");
+            return healthPoints.value <= 0;
         }
 
         //Animation event caller
@@ -124,18 +124,16 @@ namespace RPG.Attributes
 
         public object CaptureState()
         {
-            return healthPoints;
+            return healthPoints.value;
         }
 
         public void RestoreState(object state)
         {
-
             healthPoints.value = (float)state;
 
             if (IsDead())
             {
                 //Dies on load
-
                 Die(); 
                 SetAnimToDead();
                 anim.SetBool("Dead", false);

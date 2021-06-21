@@ -65,10 +65,6 @@ public class RayCaster : MonoBehaviour
 
     #region raycasters
 
-    //void UnpackBitsFromLayerMask()
-    //{
-
-    //}
     bool defenceFlag;
     public Vector3 CastRayFoward(Color color, int layerMask)
     {
@@ -77,7 +73,7 @@ public class RayCaster : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hitFoward, maxDistance, layerMask ))
         {
             //Debug.Log("We hit: " + hit.transform.name);
-            // distanceTofloorFwd = hitFoward.collider.gameObject.layer = layerMask;
+            distanceTofloorFwd = hitFoward.collider.gameObject.layer = layerMask;
             // maxDistance = distanceTofloorFwd;
             //print(Convert.ToString(layerMask, 2).PadLeft(32, '0'));
 
