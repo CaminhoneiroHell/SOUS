@@ -10,7 +10,6 @@
 
         Dictionary<ECharacterClass, Dictionary<Stat, float[]>> lookUpTable = null;
 
-
         public float GetStat(Stat stat, ECharacterClass characterClasses, int level)
         {
             BuildLookUp();

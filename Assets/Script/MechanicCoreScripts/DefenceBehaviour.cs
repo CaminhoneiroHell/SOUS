@@ -8,10 +8,13 @@ namespace UniversalZero.Core
         Animator animator;
         LayerMask talho;
 
+        float lockZAxisRef;
         void Start()
         {
             animator = GetComponent<Animator>();
             talho = LayerMask.GetMask("Talho");
+
+            lockZAxisRef = transform.position.z;
         }
 
 
@@ -20,7 +23,7 @@ namespace UniversalZero.Core
             //Lock  Z axis
             gameObject.transform.position = new Vector3(transform.position.x,
                 transform.position.y,
-                10.411f);
+                lockZAxisRef);
         }
 
         public void DefTalho()

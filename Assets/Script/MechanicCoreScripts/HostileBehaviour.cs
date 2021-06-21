@@ -8,9 +8,12 @@ namespace UniversalZero.Core
     {
         Animator animator;
         [SerializeField]GameObject weapon;
+
+        float lockZAxisRef;
         void Start()
         {
             animator = GetComponent<Animator>();
+            lockZAxisRef = transform.position.z;
         }
         void Hit_AnimationEvent()
         {
@@ -22,7 +25,7 @@ namespace UniversalZero.Core
             //Lock Z axis
             gameObject.transform.position = new Vector3(transform.position.x,
                 transform.position.y,
-                10.411f);
+                lockZAxisRef);
 
             if (Input.GetKeyDown(KeyCode.A)){
                 animator.SetTrigger("AtkTalho");

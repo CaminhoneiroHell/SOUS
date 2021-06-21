@@ -9,9 +9,9 @@ using UnityEngine.Events;
 namespace RPG.Attributes
 {
 
-    public class Health : MonoBehaviour, ISaveable
+    public class Health : MonoBehaviour/*, ISaveable*/
     {
-        [SerializeField] LazyValue<float> healthPoints;
+        LazyValue<float> healthPoints;
 
         Animator anim;
         Collider col;
@@ -35,16 +35,16 @@ namespace RPG.Attributes
 
         private void Start()
         {
+            healthPoints.ForceInit();
+
             anim = GetComponent<Animator>();
             col = GetComponent<Collider>();
             actionScheduler = GetComponent<ActionScheduler>();
-
-            healthPoints.ForceInit();
         }
 
         private float GetInitialHealth()
         {
-             return healthPoints.value = GetComponent<BaseStats>().GetStat(Stat.Health);
+             return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         private void OnEnable()

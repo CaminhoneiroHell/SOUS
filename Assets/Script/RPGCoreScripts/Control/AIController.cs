@@ -18,8 +18,8 @@ namespace RPG.Control
         GameObject player;
         ActionScheduler actScheduler;
         [SerializeField] PatrolPath path = null;
-        [SerializeField] LazyValue<Vector3> guardPosition = null;
 
+        LazyValue<Vector3> guardPosition = null;
         float wayPointDistanceTolerance = 1f;
 
         [SerializeField] float playerDistance;

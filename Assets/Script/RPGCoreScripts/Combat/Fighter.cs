@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using RPG.Core;
+using RPG.Stats;
+using RPG.Saving;
 using UnityEngine;
 using RPG.Movement;
-using UnityEngine.AI;
-using RPG.Core;
-using RPG.Saving;
 using RPG.Attributes;
-using RPG.Stats;
+using UnityEngine.AI;
 using GameDevTV.Utils;
-using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider

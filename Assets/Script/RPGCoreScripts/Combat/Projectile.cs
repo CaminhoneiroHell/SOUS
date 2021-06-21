@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using RPG.Attributes;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
@@ -21,6 +22,7 @@ public class Projectile : MonoBehaviour
 
     GameObject instigator = null;
 
+    [SerializeField] UnityEvent onHit;
     private void Start()
     {
         transform.LookAt(GetAimLocation());
@@ -64,6 +66,9 @@ public class Projectile : MonoBehaviour
         if (other.GetComponent<Health>() != target) return;
         if (target.IsDead()) return;
 
+
+        speed = 0;
+        onHit.Invoke();
 
         if (hitEffect != null)
         {

@@ -16,7 +16,8 @@ namespace RPG.Stats
 
         public event Action onLevelUp;
 
-        [SerializeField] LazyValue<int> currentLevel;
+        LazyValue<int> currentLevel;
+        //int currentLevel;
 
         Experience experience;
         private void Awake()
@@ -43,8 +44,10 @@ namespace RPG.Stats
         private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
+            //if (newLevel > currentLevel/*.value*/)
             if (newLevel > currentLevel.value)
             {
+                //currentLevel/*.value*/ = newLevel;
                 currentLevel.value = newLevel;
                 LevelUpEffect();
                 onLevelUp();
@@ -60,6 +63,13 @@ namespace RPG.Stats
 
         public int GetLevel()
         {
+            //if (currentLevel/*.value*/ < 1)
+            //{
+            //    currentLevel/*.value*/ = CalculateLevel();
+            //}
+            //return currentLevel/*.value*/;
+
+
             if (currentLevel.value < 1)
             {
                 currentLevel.value = CalculateLevel();
