@@ -6,7 +6,7 @@ namespace RPG.Core
     public class ActionScheduler : MonoBehaviour
     {
         IAction currentAction;
-        public void StartAction(IAction action)
+        public void StartAction(IAction action) //When cancelling action comes null
         {
             //If is the same action that has been called, ignore
             if (currentAction == action) return;

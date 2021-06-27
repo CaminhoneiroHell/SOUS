@@ -59,7 +59,7 @@ namespace RPG.Combat
             if (GetComponent<Health>().IsDead()) return;
 
             timeSinceLastAttack += Time.deltaTime;
-            if (target != null)
+            if (target != null && !target.IsDead())
             {
                 if (!TargetIsInRange())
                 {

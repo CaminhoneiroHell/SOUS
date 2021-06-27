@@ -52,19 +52,16 @@ namespace RPG.Attributes
             GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
         }
 
-
         public void TakeDamage(GameObject instigator, float dmg)
         {
             print(gameObject.name + " took damage: " + dmg);
             healthPoints.value = Mathf.Max(healthPoints.value - dmg, 0);
 
-            if (IsDead())
-            {
+            if (IsDead()){  
                 GainExperience(instigator);
                 Die();
             }
-            else
-            {
+            else{
                 //takeDamage.Invoke(dmg);
                 takeDamage.Invoke();
             }

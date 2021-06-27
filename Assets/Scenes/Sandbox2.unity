@@ -632,6 +632,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalB
       objectReference: {fileID: 0}
+    - target: {fileID: 731955905779454918, guid: d6cdc584b936a0143af9f921480faf21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: fadeInTime
@@ -8290,7 +8295,7 @@ PrefabInstance:
     - target: {fileID: 7976234748322801674, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7976234748322801675, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
@@ -14124,7 +14129,7 @@ PrefabInstance:
     - target: {fileID: 7976234748322801674, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7976234748322801675, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
@@ -14313,7 +14318,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: f254941d929a64a4b827b49aa594187e,
+      objectReference: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc13a0971d644cf479a4fec5e2c512c3, type: 3}
@@ -21871,7 +21876,7 @@ PrefabInstance:
     - target: {fileID: 7976234748322801674, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7976234748322801675, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
@@ -24463,7 +24468,7 @@ PrefabInstance:
     - target: {fileID: 7976234748322801674, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7976234748322801675, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
@@ -26375,7 +26380,7 @@ PrefabInstance:
     - target: {fileID: 7976234748322801674, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7976234748322801675, guid: dc13a0971d644cf479a4fec5e2c512c3,
         type: 3}
@@ -26815,6 +26820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PortalA
+      objectReference: {fileID: 0}
+    - target: {fileID: 731955905779454918, guid: d6cdc584b936a0143af9f921480faf21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
@@ -27265,7 +27275,7 @@ PrefabInstance:
     - target: {fileID: 2292451245081365546, guid: a569e982ced073b42a0e37c3df01a249,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.75
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 2292451245081365546, guid: a569e982ced073b42a0e37c3df01a249,
         type: 3}
