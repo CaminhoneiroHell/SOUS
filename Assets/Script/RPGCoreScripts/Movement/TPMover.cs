@@ -9,15 +9,17 @@ using UnityEngine.AI;
 public class TPMover : MonoBehaviour//, IAction
 {
     bool isRunning = false; bool isAttacking = false;
-    float RunningFactor = 1f; //{ get { return isRunning ? 1f : 0.5f; } }
     Vector3 direction;
     Animator anim;
     Fighter warrior;
     Health target;
     ActionScheduler scheduler;
 
-    float rotateSpeed = 5f, fowardSpeed = 8f;
+    [SerializeField]float rotateSpeed = 2f, fowardSpeed = 1f;
 
+
+    float horizontal;
+    float vertical; 
 
     void Start()
     {
@@ -26,9 +28,7 @@ public class TPMover : MonoBehaviour//, IAction
         scheduler = GetComponent<ActionScheduler>();
 
     }
-
-    float horizontal;
-    float vertical; 
+    float RunningFactor { get { return isRunning ? 1f : 0.5f; } }
     void PlayerController_TPC()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
