@@ -12,21 +12,51 @@ public class TPMover : MonoBehaviour//, IAction
     Vector3 direction;
     Animator anim;
     Fighter warrior;
-    Health target;
-    ActionScheduler scheduler;
 
+    [SerializeField] GameObject target;
     [SerializeField]float rotateSpeed = 2f, fowardSpeed = 1f;
+
+    //ActionScheduler scheduler;
+    //[SerializeField] float timeAttackOffset = 3f;
+    //[SerializeField] float timeSinceLastAttack = Mathf.Infinity;
 
 
     float horizontal;
-    float vertical; 
+    float vertical;
+
+    [SerializeField]
+    int enemy = 0;
+
+    private void Awake()
+    {
+        enemy = LayerMask.GetMask("Enemy");
+    }
 
     void Start()
     {
         anim = GetComponent<Animator>();
         warrior = GetComponent<Fighter>(); 
-        scheduler = GetComponent<ActionScheduler>();
+        //scheduler = GetComponent<ActionScheduler>();
 
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+            anim.SetTrigger("Kick");
+
+        PlayerController_TPC();
+        MovementAnimation_TPC();
+        MoveOperation_TPC();
+        TargetIsInRange();
+
+        if (target != null /*&& target.GetComponent<Health>().IsDead()*/)
+        {
+            anim.SetTrigger("OutOfAttack");
+            //target = null;
+        }
+
+        Fighter_TPC();
     }
     float RunningFactor { get { return isRunning ? 1f : 0.5f; } }
     void PlayerController_TPC()
@@ -38,37 +68,16 @@ public class TPMover : MonoBehaviour//, IAction
         direction = new Vector3(horizontal, 0f, vertical).normalized;
     }
 
-    void Animation_TPC()
+    void MovementAnimation_TPC()
     {
         if (horizontal != 0) return;
         anim.SetFloat("fowardSpeed", direction.z * RunningFactor);
     }
 
-    void Move_TPC()
+    void MoveOperation_TPC()
     {
         transform.Translate(Vector3.forward * direction.z * (RunningFactor * fowardSpeed) * Time.deltaTime);
         transform.Rotate(new Vector3(0, direction.x * rotateSpeed, 0), Space.World);
-    }
-
-
-    [SerializeField] float timeAttackOffset = 3f;
-    [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
-
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerController_TPC();
-        Animation_TPC();
-        Move_TPC();
-        TargetIsInRange();
-
-        if (target != null && target.GetComponent<Health>().IsDead())
-        {
-            anim.SetTrigger("OutOfAttack");
-            target = null;
-        }
-
-        Fighter_TPC();
     }
 
     private void Fighter_TPC()
@@ -79,7 +88,6 @@ public class TPMover : MonoBehaviour//, IAction
             Attack_TPC();
     }
 
-
     void Attack_TPC()
     {
         //scheduler.StartAction(this);
@@ -88,29 +96,21 @@ public class TPMover : MonoBehaviour//, IAction
     }
 
     RaycastHit hit;
+    [SerializeField] float violenceRadius = 5f;
     void TargetIsInRange()
     {
         if(target == null)
         {
             // Cast a sphere wrapping character controller 4 meters forward
             // to see if it is about to hit anything.
-            if (Physics.SphereCast(transform.position, 2, transform.forward, out hit, violenceRadius))
-            {
-                if(hit.collider.gameObject.tag == "Thug")
-                {
-                    target = hit.collider.gameObject.GetComponent<Health>();
-                    print("Thug processing" + target.gameObject.name);
-                }
-            }
+            //if (Physics.SphereCast(transform.position, 5, transform.forward, out hit, hit.collider.gameObject.layer))
+            //{
+            //    print("Thug processing" + target.gameObject.name);
+            //    target = hit.collider.gameObject;
+            //    //target = hit.collider.gameObject.GetComponent<Health>();
+            //}
         }
 
-    }
-
-    [SerializeField] float violenceRadius = 5f;
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, violenceRadius);
     }
 
     void Hit_AnimationEvent()
@@ -118,7 +118,7 @@ public class TPMover : MonoBehaviour//, IAction
         if (target != null)
         {
             Debug.Log("Punched");
-            target.TakeDamage(gameObject, 20f);
+            //target.TakeDamage(gameObject, 20f);
         }
     }
 }

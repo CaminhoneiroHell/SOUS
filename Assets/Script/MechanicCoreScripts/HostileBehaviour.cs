@@ -27,32 +27,88 @@ namespace UniversalZero.Core
                 transform.position.y,
                 lockZAxisRef);
 
-            if (Input.GetKeyDown(KeyCode.A)){
-                animator.SetTrigger("AtkTalho");
-            }
-            if (Input.GetKeyDown(KeyCode.S)){
-                animator.SetTrigger("AtkFendente");
-            }
-            if (Input.GetKeyDown(KeyCode.D)){ 
-                animator.SetTrigger("AtkCortePerna");
-            }
-            if (Input.GetKeyDown(KeyCode.F)){ 
-                animator.SetTrigger("AtkRevCortePerna");
-            }
-            if (Input.GetKeyDown(KeyCode.Q)){ 
-                animator.SetTrigger("AtkFlanco");
-            }
-            if (Input.GetKeyDown(KeyCode.W)){ 
-                animator.SetTrigger("AtkRevFlanco");
-            }
-            if (Input.GetKeyDown(KeyCode.E)){ 
-                animator.SetTrigger("AtkChef");
-            }
-            if (Input.GetKeyDown(KeyCode.R)){ 
-                animator.SetTrigger("AtkRevChef");
-            }
+            #region OldInputs commented
+            //if (Input.GetKeyDown(KeyCode.A))
+            //{
+            //    TalhoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    FendenteTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.D))
+            //{
+            //    CPernaTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.F))
+            //{
+            //    RevCPernaTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.Q))
+            //{
+            //    FlancoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.W))
+            //{
+            //    RevFlancoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.E))
+            //{
+            //    ChefTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+            //    RevChefTrigger();
+            //}
+            #endregion
         }
 
+        public void RevChefTrigger()
+        {
+            animator.SetTrigger("AtkRevChef");
+        }
+
+        public void ChefTrigger()
+        {
+            animator.SetTrigger("AtkChef");
+        }
+
+        public void RevFlancoTrigger()
+        {
+            animator.SetTrigger("AtkRevFlanco");
+        }
+
+        public void FlancoTrigger()
+        {
+            animator.SetTrigger("AtkFlanco");
+        }
+
+        public void RevCPernaTrigger()
+        {
+            animator.SetTrigger("AtkRevCortePerna");
+        }
+
+        public void CPernaTrigger()
+        {
+            animator.SetTrigger("AtkCortePerna");
+        }
+
+        public void FendenteTrigger()
+        {
+            animator.SetTrigger("AtkFendente");
+        }
+
+        public void TalhoTrigger()
+        {
+            animator.SetTrigger("AtkTalho");
+        }
+
+        #region Broadsword singing
+
+        #endregion
+
+
+        #region events triggered by character animation 
         void SetDefaultLayerAnimationEvent(){
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
@@ -82,7 +138,7 @@ namespace UniversalZero.Core
         void SetRevChefLayerAnimationEvent(){
             gameObject.layer = LayerMask.NameToLayer("RevChef");            
         }
-
+        #endregion
     }
 
 }

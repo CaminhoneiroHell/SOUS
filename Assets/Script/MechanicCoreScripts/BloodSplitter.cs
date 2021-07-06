@@ -5,7 +5,7 @@ using UnityEngine;
 public class BloodSplitter : MonoBehaviour
 {
     [SerializeField] GameObject[] blood;
-    bool bloodFXOffset = false;
+    bool bloodFXOffset = true;
     public IEnumerator BloodSplatter()
     {
         yield return new WaitForSeconds(1f);
@@ -15,7 +15,6 @@ public class BloodSplitter : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //collision.transform.position;
-        print("Levou na piunha");
         if (bloodFXOffset) return;
 
         bloodFXOffset = true;
@@ -43,7 +42,5 @@ public class BloodSplitter : MonoBehaviour
 
         //blood.gameObject.SetActive(false);
         //blood.gameObject.SetActive(true);
-
-        print("Called");
     }
 }

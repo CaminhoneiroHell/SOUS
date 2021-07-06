@@ -33,12 +33,10 @@ namespace UniversalZero.Core
 
         public void DefFendente()
         {
-            print("Attacked in DefFendente!");
             animator.SetTrigger("DefFendente");
         }
         public void DefCortePerna()
         {
-            print("DefCortePerna defense called");
             animator.SetTrigger("DefCortePerna");
         }
         public void DefRevPerna()

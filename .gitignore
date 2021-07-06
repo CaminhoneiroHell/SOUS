@@ -64,4 +64,9 @@ crashlytics-build.properties
 # Skybox files folder 
 #Assets/Game/SkyBox/*
 
+Assets/Plugins/*
+
 Assets/zPlugins/*
+
+Assets/Game/Audio/*
+
