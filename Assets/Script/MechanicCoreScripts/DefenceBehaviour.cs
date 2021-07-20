@@ -1,29 +1,108 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace UniversalZero.Core
 {
     public class DefenceBehaviour : MonoBehaviour
     {
         Animator animator;
-        LayerMask talho;
+        [SerializeField]GameObject target;
+
 
         float lockZAxisRef;
         void Start()
         {
             animator = GetComponent<Animator>();
-            talho = LayerMask.GetMask("Talho");
-
+            
             lockZAxisRef = transform.position.z;
         }
 
+        [SerializeField] bool defenceFlag;
+        public void ParryCaster()
+        {
+            if (target != null)
+            {
+                print("Distance: " + (gameObject.transform.position.x - target.transform.position.x));
+
+                if (OnGuard()) defenceFlag = false;
+                
+                if (ParryMoveReader("Talho")){
+                    DefTalho();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("Fendente"))
+                {   
+                    DefFendente();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("CortePerna"))
+                {
+                    DefCortePerna();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("RevCortePerna"))
+                {
+                    DefRevPerna();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("Flanco"))
+                {
+                    DefFlanco();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("RevFlanco"))
+                {
+                    DefRevFlanco();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("Chef"))
+                {
+                    DefChef();
+                    defenceFlag = true;
+                }
+
+                if (ParryMoveReader("RevChef"))
+                {
+                    DefReversoChef();
+                    defenceFlag = true;
+                }
+
+            }
+            else
+            {
+                defenceFlag = false;
+                print("Defence behaviour missed target");
+            }    
+        }
+
+        private bool OnGuard()
+        {
+            return defenceFlag && (LayerMask.GetMask("Default") & (1 << target.layer)) > 0;
+        }
+
+        bool ParryMoveReader(string atkType)
+        {
+            return !defenceFlag && (LayerMask.GetMask(atkType) & (1 << target.layer)) > 0;
+        }
 
         void Update()
         {
-            //Lock  Z axis
-            gameObject.transform.position = new Vector3(transform.position.x,
-                transform.position.y,
-                lockZAxisRef);
+            //float x = (gameObject.transform.position.x - target.transform.position.x) < 1 ? target.transform.position.x + 1f : transform.position.x;
+            //float z = (gameObject.transform.position.z - target.transform.position.z) > 1 ? target.transform.position.z - 1 : transform.position.z;
+
+            //gameObject.transform.position = new Vector3(
+            //    x,
+            //    transform.position.y,
+            //    z);
+
+            ParryCaster();
         }
 
         public void DefTalho()
@@ -58,15 +137,6 @@ namespace UniversalZero.Core
         public void DefReversoChef()
         {
             animator.SetTrigger("DefRevChef");
-        }
-
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if((other.gameObject.layer << talho) != 0){
-                //print("Attacked in Talho!");
-                //animator.SetTrigger("DefTest");
-            }
         }
     }
 }

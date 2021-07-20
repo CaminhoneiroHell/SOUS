@@ -27,39 +27,39 @@ namespace UniversalZero.Core
                 transform.position.y,
                 lockZAxisRef);
 
-            #region OldInputs commented
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    TalhoTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.S))
-            //{
-            //    FendenteTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.D))
-            //{
-            //    CPernaTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.F))
-            //{
-            //    RevCPernaTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.Q))
-            //{
-            //    FlancoTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.W))
-            //{
-            //    RevFlancoTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.E))
-            //{
-            //    ChefTrigger();
-            //}
-            //if (Input.GetKeyDown(KeyCode.R))
-            //{
-            //    RevChefTrigger();
-            //}
+            #region OldInputs
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                TalhoTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                FendenteTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                CPernaTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                RevCPernaTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                FlancoTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                RevFlancoTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ChefTrigger();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RevChefTrigger();
+            }
             #endregion
         }
 
