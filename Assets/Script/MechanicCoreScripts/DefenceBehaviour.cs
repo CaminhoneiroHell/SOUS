@@ -8,6 +8,7 @@ namespace UniversalZero.Core
     {
         Animator animator;
         [SerializeField]GameObject target;
+        [SerializeField] GameObject weapon;
 
 
         float lockZAxisRef;
@@ -94,13 +95,7 @@ namespace UniversalZero.Core
 
         void Update()
         {
-            //float x = (gameObject.transform.position.x - target.transform.position.x) < 1 ? target.transform.position.x + 1f : transform.position.x;
-            //float z = (gameObject.transform.position.z - target.transform.position.z) > 1 ? target.transform.position.z - 1 : transform.position.z;
-
-            //gameObject.transform.position = new Vector3(
-            //    x,
-            //    transform.position.y,
-            //    z);
+            
 
             ParryCaster();
         }
