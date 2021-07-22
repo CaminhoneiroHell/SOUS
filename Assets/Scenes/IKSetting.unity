@@ -9019,12 +9019,12 @@ PrefabInstance:
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.05838988
+      value: 0.058389876
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06836206
+      value: 0.06836212
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -9209,12 +9209,12 @@ PrefabInstance:
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.05838988
+      value: 0.058389876
       objectReference: {fileID: 0}
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06836206
+      value: 0.06836212
       objectReference: {fileID: 0}
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -17044,7 +17044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965132967}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0.049, z: 0.030284554}
+  m_LocalPosition: {x: -3.202, y: 0.049, z: 0.030284554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 215055393}
@@ -22276,7 +22276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7310697302449087716}
   m_LocalRotation: {x: 0.108548515, y: -0.01536878, z: -0.69668067, w: 0.70895493}
-  m_LocalPosition: {x: -0.43699256, y: -0.00000013259704, z: 0.000000013969835}
+  m_LocalPosition: {x: -0.4369925, y: 0.00000010093207, z: 0.000000020954753}
   m_LocalScale: {x: 0.9999999, y: 0.9999998, z: 0.99999976}
   m_Children: []
   m_Father: {fileID: 5205339099802497757}
@@ -22610,7 +22610,7 @@ MonoBehaviour:
     props:
       group: 1
       mappingWeight: 1
-      pinWeight: 0.5
+      pinWeight: 0.8
       muscleWeight: 1
       muscleDamper: 1
       mapPosition: 0
@@ -22676,7 +22676,7 @@ MonoBehaviour:
     props:
       group: 3
       mappingWeight: 1
-      pinWeight: 0
+      pinWeight: 0.701
       muscleWeight: 1
       muscleDamper: 1
       mapPosition: 0
@@ -22709,7 +22709,7 @@ MonoBehaviour:
     props:
       group: 4
       mappingWeight: 1
-      pinWeight: 0
+      pinWeight: 0.719
       muscleWeight: 1
       muscleDamper: 1
       mapPosition: 0
@@ -22742,9 +22742,9 @@ MonoBehaviour:
     props:
       group: 2
       mappingWeight: 1
-      pinWeight: 0
-      muscleWeight: 0.03
-      muscleDamper: 0.02
+      pinWeight: 0.829
+      muscleWeight: 0.812
+      muscleDamper: 0.818
       mapPosition: 0
       internalCollisionIgnores:
         ignoreAll: 0
@@ -24446,7 +24446,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.43699303, y: -0.000000022002494, z: -0.000000015366819}
+  m_ConnectedAnchor: {x: -0.43699297, y: 0.00000021152661, z: -0.000000008614732}
   serializedVersion: 2
   m_SecondaryAxis: {x: -1, y: 0, z: 0}
   m_XMotion: 0
@@ -24803,7 +24803,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.43700364, y: 0.00000009092035, z: -0.00000021536837}
+  m_ConnectedAnchor: {x: -0.4370035, y: 0.00000028626525, z: -0.0000001927838}
   serializedVersion: 2
   m_SecondaryAxis: {x: -1, y: 0, z: 0}
   m_XMotion: 0
@@ -24978,7 +24978,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.050017, y: 0.92885286, z: 0.03028452}
+  m_ConnectedAnchor: {x: -3.252017, y: 0.92885286, z: 0.03028452}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -25083,7 +25083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8208189140940611494}
   m_LocalRotation: {x: -0.10877405, y: 0.015097188, z: -0.696656, w: 0.70895046}
-  m_LocalPosition: {x: -0.4370032, y: -0.000000023748722, z: -0.00000012596139}
+  m_LocalPosition: {x: -0.43700308, y: 0.00000020186414, z: -0.00000011804515}
   m_LocalScale: {x: 0.99999976, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4668252198346804985}

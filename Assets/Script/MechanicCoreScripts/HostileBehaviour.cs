@@ -23,9 +23,9 @@ namespace UniversalZero.Core
         private void Update()
         {
             //Lock Z axis
-            gameObject.transform.position = new Vector3(transform.position.x,
-                transform.position.y,
-                lockZAxisRef);
+            //gameObject.transform.position = new Vector3(transform.position.x,
+            //    transform.position.y,
+            //    lockZAxisRef);
 
             #region OldInputs
             if (Input.GetKeyDown(KeyCode.A))

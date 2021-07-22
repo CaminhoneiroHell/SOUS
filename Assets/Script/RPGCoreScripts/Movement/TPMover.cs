@@ -43,6 +43,8 @@ public class TPMover : MonoBehaviour//, IAction
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+            anim.SetTrigger("Attack");
+        if (Input.GetMouseButtonDown(1))
             anim.SetTrigger("Kick");
 
         PlayerController_TPC();
