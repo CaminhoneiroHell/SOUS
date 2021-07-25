@@ -7,108 +7,116 @@ namespace UniversalZero.Core
     public class HostileBehaviour : MonoBehaviour
     {
         Animator animator;
-        [SerializeField]GameObject weapon;
-
+        public GameObject weapon, target;
+        
         float lockZAxisRef;
         void Start()
         {
             animator = GetComponent<Animator>();
             lockZAxisRef = transform.position.z;
         }
-        void Hit_AnimationEvent()
-        {
 
-        }
 
         private void Update()
         {
-            //Lock Z axis
-            //gameObject.transform.position = new Vector3(transform.position.x,
-            //    transform.position.y,
-            //    lockZAxisRef);
+            if (!target) return;
+
+            transform.LookAt(target.transform);
+
+            //Lock Foward axis
+            gameObject.transform.position = new Vector3(transform.position.x,
+                transform.position.y,
+                lockZAxisRef);
 
             #region OldInputs
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                TalhoTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                FendenteTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                CPernaTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                RevCPernaTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                FlancoTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                RevFlancoTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ChefTrigger();
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                RevChefTrigger();
-            }
+            //if (Input.GetKeyDown(KeyCode.A))
+            //{
+            //    TalhoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    FendenteTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.D))
+            //{
+            //    CPernaTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.F))
+            //{
+            //    RevCPernaTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.Q))
+            //{
+            //    FlancoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.W))
+            //{
+            //    RevFlancoTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.E))
+            //{
+            //    ChefTrigger();
+            //}
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+            //    RevChefTrigger();
+            //}
             #endregion
         }
 
-        public void RevChefTrigger()
+        public void StartHostileBehaviour(GameObject t)
         {
-            animator.SetTrigger("AtkRevChef");
+            //Debug.LogWarning("Hostile Behaviour calling");
+            target = t;
+            Trigger("AtkTalho");
         }
 
-        public void ChefTrigger()
+        #region Broadsword Singing Logic
+        public void Trigger(string atk)
         {
-            animator.SetTrigger("AtkChef");
+            animator.SetTrigger(atk);
+        }
+        #endregion
+
+        #region events triggered to set character animation    
+   
+        void Combo1Event(){ 
+            Trigger("AtkFendente");
         }
 
-        public void RevFlancoTrigger()
-        {
-            animator.SetTrigger("AtkRevFlanco");
+        void Combo2Event(){
+            Trigger("AtkCortePerna");
         }
 
-        public void FlancoTrigger()
-        {
-            animator.SetTrigger("AtkFlanco");
+        void Combo3Event(){
+            Trigger("AtkRevCortePerna");
         }
 
-        public void RevCPernaTrigger()
-        {
-            animator.SetTrigger("AtkRevCortePerna");
+        void Combo4Event(){
+            Trigger("AtkFlanco");
         }
 
-        public void CPernaTrigger()
-        {
-            animator.SetTrigger("AtkCortePerna");
+        void Combo5Event(){
+            Trigger("AtkRevFlanco");
         }
 
-        public void FendenteTrigger()
-        {
-            animator.SetTrigger("AtkFendente");
+        void Combo6Event(){
+            Trigger("AtkChef");
         }
 
-        public void TalhoTrigger()
-        {
-            animator.SetTrigger("AtkTalho");
+        void Combo7Event(){
+            Trigger("AtkRevChef");
         }
 
-        #region Broadsword singing
+
+        void Combo8Event(){
+            Trigger("AtkTalho");
+        }
 
         #endregion
 
 
-        #region events triggered by character animation 
+        #region events triggered to set character animation 
         void SetDefaultLayerAnimationEvent(){
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
@@ -139,6 +147,6 @@ namespace UniversalZero.Core
             gameObject.layer = LayerMask.NameToLayer("RevChef");            
         }
         #endregion
-    }
 
+    }
 }

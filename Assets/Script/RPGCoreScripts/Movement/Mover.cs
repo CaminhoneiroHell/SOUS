@@ -13,14 +13,12 @@ namespace RPG.Movement
 
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
-        [SerializeField] Transform target;
-        [SerializeField] float maxSpeed = 6f;
-
-        NavMeshAgent navMesh;
-        ActionScheduler scheduler;
         Health health;
         Animator animator;
-
+        NavMeshAgent navMesh;
+        ActionScheduler scheduler;
+        [SerializeField] Transform target;
+        [SerializeField] float maxSpeed = 6f;
 
         void Awake()
         {
@@ -29,7 +27,6 @@ namespace RPG.Movement
             scheduler = GetComponent<ActionScheduler>();
             health = GetComponent<Health>();
         }
-
 
         void Update()
         {

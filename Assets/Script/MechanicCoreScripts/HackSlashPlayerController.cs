@@ -20,7 +20,7 @@ namespace UniversalZero.Core
         {
             if (Input.GetMouseButtonDown(0) && !attackFlag)
             {
-                aggro.TalhoTrigger(); 
+                aggro.Trigger("AtkTalho"); 
                 attackFlag = true;
             }
 

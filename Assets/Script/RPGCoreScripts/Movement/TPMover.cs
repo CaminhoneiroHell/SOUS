@@ -50,7 +50,7 @@ public class TPMover : MonoBehaviour//, IAction
         PlayerController_TPC();
         MovementAnimation_TPC();
         MoveOperation_TPC();
-        TargetIsInRange();
+        //TargetIsInRange();
 
         if (target != null /*&& target.GetComponent<Health>().IsDead()*/)
         {
@@ -98,11 +98,11 @@ public class TPMover : MonoBehaviour//, IAction
     }
 
     RaycastHit hit;
-    [SerializeField] float violenceRadius = 5f;
-    void TargetIsInRange()
-    {
-        if(target == null)
-        {
+    //[SerializeField] float violenceRadius = 5f;
+    //void TargetIsInRange()
+    //{
+    //    if(target == null)
+    //    {
             // Cast a sphere wrapping character controller 4 meters forward
             // to see if it is about to hit anything.
             //if (Physics.SphereCast(transform.position, 5, transform.forward, out hit, hit.collider.gameObject.layer))
@@ -111,9 +111,9 @@ public class TPMover : MonoBehaviour//, IAction
             //    target = hit.collider.gameObject;
             //    //target = hit.collider.gameObject.GetComponent<Health>();
             //}
-        }
+    //    }
 
-    }
+    //}
 
     void Hit_AnimationEvent()
     {

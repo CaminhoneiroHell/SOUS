@@ -7,15 +7,16 @@ namespace UniversalZero.Core
     public class DefenceBehaviour : MonoBehaviour
     {
         Animator animator;
-        [SerializeField]GameObject target;
+        [SerializeField] GameObject target;
         [SerializeField] GameObject weapon;
+        [SerializeField] GameObject puppet;
 
+        [SerializeField] float distanceDebug;
 
         float lockZAxisRef;
         void Start()
         {
             animator = GetComponent<Animator>();
-            
             lockZAxisRef = transform.position.z;
         }
 
@@ -24,11 +25,27 @@ namespace UniversalZero.Core
         {
             if (target != null)
             {
-                print("Distance: " + (gameObject.transform.position.x - target.transform.position.x));
+                gameObject.transform.position = new Vector3(transform.position.x,
+                                                            transform.position.y,
+                                                            lockZAxisRef);
+
+                //print("Distance: " + (gameObject.transform.position.x - target.transform.position.x));
 
                 if (OnGuard()) defenceFlag = false;
                 
                 if (ParryMoveReader("Talho")){
+
+                    //Must move out of here
+                    FindObjectOfType<RPG.Control.AIController>().enabled = false;
+                    FindObjectOfType<RPG.Combat.Fighter>().enabled = false;
+
+                    foreach(RootMotion.Dynamics.Muscle m in puppet.GetComponent<RootMotion.Dynamics.PuppetMaster>().muscles)
+                    {
+                        m.props.pinWeight = 1f;
+                        m.props.muscleWeight = 1f;
+                        m.props.muscleDamper = 1f;
+                    }
+
                     DefTalho();
                     defenceFlag = true;
                 }
@@ -95,8 +112,12 @@ namespace UniversalZero.Core
 
         void Update()
         {
+            distanceDebug = (gameObject.transform.position.x - target.transform.position.x);
             
-
+            //if (distanceDebug < 2f)
+                //transform.Translate(new Vector3(transform.position.x, transform.position.y, transform.forward.z * backWardMoveDistance * Time.deltaTime), Space.World);
+    
+            transform.LookAt(target.transform);
             ParryCaster();
         }
 

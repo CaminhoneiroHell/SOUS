@@ -54,6 +54,7 @@ namespace RPG.Combat
             currentWeapon.ForceInit();
         }
 
+        bool duellingFlag = false;
         private void Update()
         {
             if (GetComponent<Health>().IsDead()) return;
@@ -69,13 +70,27 @@ namespace RPG.Combat
                 {
                     //Being called around 27 frames p/ second
                     mov.Stop();
-                    if (timeAttackOffset < timeSinceLastAttack)
+                    if (timeAttackOffset < timeSinceLastAttack && !duellingFlag)
                     {
                         scheduler.StartAction(this);
-                        print("Moveto called on update!");
+                        //print("Moveto called on update!");
                         transform.LookAt(target.transform);
-                        animator.SetTrigger("Attack");
-                        timeSinceLastAttack = 0;
+
+                        switch (currentWeapon.value.name)
+                        {
+                            case "Sword":
+
+                                duellingFlag = true;
+
+                                GetComponent<UniversalZero.Core.HostileBehaviour>().StartHostileBehaviour(target.gameObject);
+                                timeSinceLastAttack = 0;
+                                break;
+                            default:
+                                animator.SetTrigger("Attack");
+                                timeSinceLastAttack = 0;
+                                break;
+                        }
+
                     }
                 }
             }
@@ -133,7 +148,7 @@ namespace RPG.Combat
         void Hit_AnimationEvent()
         {
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (target != null)
+            if (target != null && !duellingFlag)
             {
                 target.TakeDamage(gameObject, damage);
             }
@@ -143,7 +158,7 @@ namespace RPG.Combat
         void Shoot_AnimationEvent()
         {
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (target != null)
+            if (target != null && !duellingFlag)
             {
                 currentWeapon.value.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
             }
