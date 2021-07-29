@@ -14,6 +14,9 @@ namespace UniversalZero.Core
         [SerializeField] float distanceDebug;
 
         float lockZAxisRef;
+
+        public int stamina = 2;
+
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -23,7 +26,7 @@ namespace UniversalZero.Core
         [SerializeField] bool defenceFlag;
         public void ParryCaster()
         {
-            if (target != null)
+            if (target != null && stamina > 0)
             {
                 gameObject.transform.position = new Vector3(transform.position.x,
                                                             transform.position.y,
@@ -36,8 +39,8 @@ namespace UniversalZero.Core
                 if (ParryMoveReader("Talho")){
 
                     //Must move out of here
-                    FindObjectOfType<RPG.Control.AIController>().enabled = false;
-                    FindObjectOfType<RPG.Combat.Fighter>().enabled = false;
+                    GetComponent<RPG.Control.AIController>().enabled = false;
+                    GetComponent<RPG.Combat.Fighter>().enabled = false;
 
                     foreach(RootMotion.Dynamics.Muscle m in puppet.GetComponent<RootMotion.Dynamics.PuppetMaster>().muscles)
                     {

@@ -20,8 +20,9 @@ namespace RPG.Combat
 
         [SerializeField] Health target;
 
-        [SerializeField] float timeAttackOffset = 2f;
-        float timeSinceLastAttack = Mathf.Infinity;
+        [SerializeField] float timeAttackOffset = 2f; // Can cause double attack triggers when the timeAttackOffset is slower than total attack animation time
+
+        [SerializeField] float timeSinceLastAttack = Mathf.Infinity;
 
         public bool targetIsInRange;
 
@@ -29,7 +30,6 @@ namespace RPG.Combat
         [SerializeField] Transform leftHand = null;
 
         [SerializeField] Weapon defaultWeapon = null;
-        //[SerializeField] Weapon currentWeapon = null;
         [SerializeField] LazyValue<Weapon> currentWeapon;
 
 
@@ -79,9 +79,7 @@ namespace RPG.Combat
                         switch (currentWeapon.value.name)
                         {
                             case "Sword":
-
                                 duellingFlag = true;
-
                                 GetComponent<UniversalZero.Core.HostileBehaviour>().StartHostileBehaviour(target.gameObject);
                                 timeSinceLastAttack = 0;
                                 break;
@@ -95,6 +93,33 @@ namespace RPG.Combat
                 }
             }
         }
+
+        //private void Update()
+        //{
+        //    if (GetComponent<Health>().IsDead()) return;
+
+        //    timeSinceLastAttack += Time.deltaTime;
+        //    if (target != null && !target.IsDead())
+        //    {
+        //        if (!TargetIsInRange())
+        //        {
+        //            mov.MoveTo(target.transform.position, 1f);
+        //        }
+        //        else
+        //        {
+        //            //Being called around 27 frames p/ second
+        //            mov.Stop();
+        //            if (timeAttackOffset < timeSinceLastAttack)
+        //            {
+        //                scheduler.StartAction(this);
+        //                print("Moveto called on update!");
+        //                transform.LookAt(target.transform);
+        //                animator.SetTrigger("Attack");
+        //                timeSinceLastAttack = 0;
+        //            }
+        //        }
+        //    }
+        //}
 
         private bool TargetIsInRange()
         {
@@ -148,7 +173,7 @@ namespace RPG.Combat
         void Hit_AnimationEvent()
         {
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (target != null && !duellingFlag)
+            if (target != null/* && !duellingFlag*/)
             {
                 target.TakeDamage(gameObject, damage);
             }
@@ -158,7 +183,7 @@ namespace RPG.Combat
         void Shoot_AnimationEvent()
         {
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (target != null && !duellingFlag)
+            if (target != null /*&& !duellingFlag*/)
             {
                 currentWeapon.value.LaunchProjectile(rightHand, leftHand, target, gameObject, damage);
             }

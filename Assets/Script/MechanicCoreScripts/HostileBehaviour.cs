@@ -16,7 +16,6 @@ namespace UniversalZero.Core
             lockZAxisRef = transform.position.z;
         }
 
-
         private void Update()
         {
             if (!target) return;
@@ -64,8 +63,7 @@ namespace UniversalZero.Core
             #endregion
         }
 
-        public void StartHostileBehaviour(GameObject t)
-        {
+        public void StartHostileBehaviour(GameObject t){
             //Debug.LogWarning("Hostile Behaviour calling");
             target = t;
             Trigger("AtkTalho");
@@ -78,7 +76,7 @@ namespace UniversalZero.Core
         }
         #endregion
 
-        #region events triggered to set character animation    
+        #region Events triggered to set character next anim combo on animation event trigger,   
    
         void Combo1Event(){ 
             Trigger("AtkFendente");
@@ -108,13 +106,10 @@ namespace UniversalZero.Core
             Trigger("AtkRevChef");
         }
 
-
         void Combo8Event(){
             Trigger("AtkTalho");
         }
-
         #endregion
-
 
         #region events triggered to set character animation 
         void SetDefaultLayerAnimationEvent(){

@@ -543,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 71974806}
   leftHand: {fileID: 392895294}
@@ -595,11 +596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 682703244}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &15440069
 Animator:
@@ -3486,7 +3487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107496714}
   m_LocalRotation: {x: 0.8082374, y: -0.106723115, z: 0.1667321, w: 0.55458367}
-  m_LocalPosition: {x: -0.27302548, y: 0.00000041723257, z: 0.0000006505288}
+  m_LocalPosition: {x: -0.27302548, y: 0.00000041536993, z: 0.0000006798655}
   m_LocalScale: {x: 1, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 965163142}
@@ -3504,7 +3505,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27302548, y: 0.00000041723257, z: 0.0000006505288}
+  m_ConnectedAnchor: {x: -0.27302548, y: 0.00000041536993, z: 0.0000006798655}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -5163,6 +5164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 1708351792}
   leftHand: {fileID: 2106283818}
@@ -5215,11 +5217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 545228307}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &129059708
 Animator:
@@ -5375,7 +5377,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3929397, y: -0.000000981905, z: 0.000000007450581}
+  m_ConnectedAnchor: {x: -0.39293963, y: -0.0000009976793, z: 0.00000048428774}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -6107,7 +6109,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.4370036, y: 0.00000015483236, z: -0.00000025937337}
+  m_ConnectedAnchor: {x: -0.43700364, y: 0.00000020733566, z: -0.0000007352793}
   serializedVersion: 2
   m_SecondaryAxis: {x: -1, y: 0, z: 0}
   m_XMotion: 0
@@ -13412,7 +13414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247965066}
   m_LocalRotation: {x: 0.108548515, y: -0.01536878, z: -0.69668067, w: 0.70895493}
-  m_LocalPosition: {x: -0.43699238, y: -0.00000047439238, z: 4.6566118e-10}
+  m_LocalPosition: {x: -0.43699232, y: -0.00000049767544, z: -0.0000004766042}
   m_LocalScale: {x: 0.9999999, y: 0.9999998, z: 0.99999976}
   m_Children: []
   m_Father: {fileID: 1457822175}
@@ -13430,7 +13432,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.43699226, y: -0.00000050314696, z: 0.000000029802315}
+  m_ConnectedAnchor: {x: -0.4369922, y: -0.00000051909586, z: -0.0000004468019}
   serializedVersion: 2
   m_SecondaryAxis: {x: -1, y: 0, z: 0}
   m_XMotion: 0
@@ -30942,6 +30944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 1780652036}
   leftHand: {fileID: 1833569860}
@@ -30994,11 +30997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 1917150535}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &697621853
 Animator:
@@ -34305,7 +34308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802239433}
   m_LocalRotation: {x: -0.8082376, y: 0.10672311, z: 0.16673367, w: 0.5545829}
-  m_LocalPosition: {x: -0.2730238, y: -0.0000005103648, z: 0.00000023795289}
+  m_LocalPosition: {x: -0.27302396, y: -0.0000006165356, z: 0.000000087544315}
   m_LocalScale: {x: 1.0000002, y: 0.99999976, z: 1}
   m_Children: []
   m_Father: {fileID: 928509093}
@@ -34323,7 +34326,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -1, z: -0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.2730238, y: -0.0000005103648, z: 0.00000023795289}
+  m_ConnectedAnchor: {x: -0.27302414, y: -0.00000069662934, z: -0.0000000027939673}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: -1}
   m_XMotion: 0
@@ -36352,7 +36355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &856690799
 Transform:
   m_ObjectHideFlags: 0
@@ -37495,6 +37498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 1976760499}
   leftHand: {fileID: 948636839}
@@ -37547,11 +37551,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 379348842}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!1 &915447290
 GameObject:
@@ -38251,7 +38255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928509092}
   m_LocalRotation: {x: 0.003968498, y: -0.07920882, z: -0.2893204, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574153, y: 0.00000037066647, z: -0.00000017881399}
+  m_LocalPosition: {x: -0.26574153, y: 0.00000038556763, z: -0.00000017881399}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
   m_Children:
   - {fileID: 802239434}
@@ -38286,7 +38290,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574153, y: 0.00000037066647, z: -0.00000017881399}
+  m_ConnectedAnchor: {x: -0.26574168, y: 0.00000043958437, z: -0.00000029802334}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -39690,7 +39694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965163141}
   m_LocalRotation: {x: -0.0039684684, y: 0.07920891, z: -0.2893205, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574144, y: 0.00000028312226, z: 0.00000017881396}
+  m_LocalPosition: {x: -0.26574165, y: -0.0000016149145, z: 0.00000014901163}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 107496715}
@@ -39725,7 +39729,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574153, y: 0.00000029802345, z: 0.00000008940698}
+  m_ConnectedAnchor: {x: -0.2657417, y: -0.0000016000133, z: 0.00000005960465}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -41940,6 +41944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 1244645735}
   leftHand: {fileID: 1276419930}
@@ -41992,11 +41997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 1864284650}
   weapon: {fileID: 1816274171}
   puppet: {fileID: 967075617}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &1012692970
 Animator:
@@ -43121,7 +43126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043767204}
   m_LocalRotation: {x: -0.000000007684636, y: 0.000000022179652, z: 0.1992929, w: 0.97994}
-  m_LocalPosition: {x: -0.23331173, y: 0.00000031583463, z: -0.00000065314873}
+  m_LocalPosition: {x: -0.23331173, y: 0.00000034121317, z: 0.00000030029275}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 1410650721}
@@ -43158,7 +43163,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.23331173, y: 0.00000031583463, z: -0.00000065314873}
+  m_ConnectedAnchor: {x: -0.23331173, y: 0.00000034121317, z: 0.00000030029275}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -44471,6 +44476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 239852012}
   leftHand: {fileID: 1150374537}
@@ -44523,11 +44529,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 74125104}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &1052913502
 Animator:
@@ -45260,7 +45266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076717580}
   m_LocalRotation: {x: -0.0039684684, y: 0.07920891, z: -0.2893205, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574144, y: 0.00000028312226, z: 0.00000017881396}
+  m_LocalPosition: {x: -0.2657414, y: 0.00000029429813, z: 0.00000017881396}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 1376039529}
@@ -45295,7 +45301,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574153, y: 0.00000029802345, z: 0.00000008940698}
+  m_ConnectedAnchor: {x: -0.2657414, y: 0.00000029429813, z: 0.00000017881396}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -52323,6 +52329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 1
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 1955400250}
   leftHand: {fileID: 289643873}
@@ -55709,7 +55716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287805310}
   m_LocalRotation: {x: -0.14076754, y: -0.8913323, z: -0.0076344884, w: 0.43087468}
-  m_LocalPosition: {x: -0.30387694, y: -0.036874626, z: -0.17756289}
+  m_LocalPosition: {x: -0.30387694, y: -0.03687464, z: -0.17756385}
   m_LocalScale: {x: 0.9999993, y: 0.99999934, z: 0.99999994}
   m_Children:
   - {fileID: 1076717581}
@@ -55744,7 +55751,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.30387694, y: -0.036874626, z: -0.17756289}
+  m_ConnectedAnchor: {x: -0.30387694, y: -0.03687464, z: -0.17756385}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -56030,7 +56037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290120437}
   m_LocalRotation: {x: -0.8082376, y: 0.10672311, z: 0.16673367, w: 0.5545829}
-  m_LocalPosition: {x: -0.2730238, y: -0.0000005103648, z: 0.00000023795289}
+  m_LocalPosition: {x: -0.2730246, y: 0.00000121817, z: 0.00000029057261}
   m_LocalScale: {x: 1.0000002, y: 0.99999976, z: 1}
   m_Children: []
   m_Father: {fileID: 1443555170}
@@ -56048,7 +56055,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -1, z: -0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27302462, y: 0.0000012144448, z: 0.00000026961786}
+  m_ConnectedAnchor: {x: -0.2730246, y: 0.00000121817, z: 0.00000029057261}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: -1}
   m_XMotion: 0
@@ -56546,7 +56553,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -1, z: -0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.2730238, y: -0.0000005103648, z: 0.00000023795289}
+  m_ConnectedAnchor: {x: -0.27302417, y: -0.0000006705523, z: -0.0000000018626449}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: -1}
   m_XMotion: 0
@@ -57699,7 +57706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374150719}
   m_LocalRotation: {x: 0.00000004470348, y: -0.00000004470348, z: -0.114465386, w: 0.9934273}
-  m_LocalPosition: {x: -0.04360436, y: -0.0033357441, z: 0.00000044796616}
+  m_LocalPosition: {x: -0.04360436, y: -0.0033357553, z: -0.00000002863817}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children:
   - {fileID: 1043767205}
@@ -57734,7 +57741,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.04360436, y: -0.0033357441, z: 0.00000044796616}
+  m_ConnectedAnchor: {x: -0.04360436, y: -0.0033357553, z: -0.00000002863817}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -58493,7 +58500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376039528}
   m_LocalRotation: {x: 0.8082374, y: -0.106723115, z: 0.1667321, w: 0.55458367}
-  m_LocalPosition: {x: -0.27302548, y: 0.00000041723257, z: 0.0000006505288}
+  m_LocalPosition: {x: -0.27302474, y: 0.0000007580967, z: 0.00000017788261}
   m_LocalScale: {x: 1, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 1076717581}
@@ -58511,7 +58518,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27302584, y: 0.0000001844019, z: 0.00000088475645}
+  m_ConnectedAnchor: {x: -0.2730251, y: 0.00000057742005, z: 0.00000041443855}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -59588,7 +59595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410650720}
   m_LocalRotation: {x: 0.14076653, y: 0.8913325, z: -0.007633439, w: 0.43087453}
-  m_LocalPosition: {x: -0.3038764, y: -0.03687426, z: 0.17756379}
+  m_LocalPosition: {x: -0.3038764, y: -0.036874276, z: 0.17756331}
   m_LocalScale: {x: 1.0000002, y: 0.9999998, z: 0.9999997}
   m_Children:
   - {fileID: 928509093}
@@ -59623,7 +59630,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3038764, y: -0.03687426, z: 0.17756379}
+  m_ConnectedAnchor: {x: -0.3038764, y: -0.036874276, z: 0.17756331}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -60833,7 +60840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443555169}
   m_LocalRotation: {x: 0.003968498, y: -0.07920882, z: -0.2893204, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574153, y: 0.00000037066647, z: -0.00000017881399}
+  m_LocalPosition: {x: -0.26574123, y: 0.0000022500758, z: -0.00000014901167}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
   m_Children:
   - {fileID: 1290120438}
@@ -60868,7 +60875,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574153, y: 0.00000037066647, z: -0.00000017881399}
+  m_ConnectedAnchor: {x: -0.26574123, y: 0.0000022500758, z: -0.00000014901167}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -61294,7 +61301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457822174}
   m_LocalRotation: {x: 0.016707925, y: -0.002160102, z: 0.104879946, w: 0.9943422}
-  m_LocalPosition: {x: -0.39293957, y: -0.0000018706778, z: -0.0000005438924}
+  m_LocalPosition: {x: -0.39293963, y: -0.0000018771389, z: -0.000000067055225}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
   m_Children:
   - {fileID: 247965067}
@@ -61329,7 +61336,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.39293957, y: -0.0000018706778, z: -0.0000005438924}
+  m_ConnectedAnchor: {x: -0.39293963, y: -0.0000018771389, z: -0.000000067055225}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -62828,7 +62835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532122111}
   m_LocalRotation: {x: 0.000000016026261, y: 0.000000019556774, z: -0.08755165, w: 0.99616003}
-  m_LocalPosition: {x: -0.47087502, y: 0.070656046, z: 0.00000006751499}
+  m_LocalPosition: {x: -0.47087502, y: 0.07065604, z: -0.00000040932213}
   m_LocalScale: {x: 0.9999998, y: 0.9999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1043767205}
@@ -62895,7 +62902,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.47087514, y: 0.07065608, z: 0.00000006751498}
+  m_ConnectedAnchor: {x: -0.47087514, y: 0.07065607, z: -0.00000040932213}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -69867,7 +69874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709300232}
   m_LocalRotation: {x: -0.14076754, y: -0.8913323, z: -0.0076344884, w: 0.43087468}
-  m_LocalPosition: {x: -0.30387694, y: -0.036874626, z: -0.17756289}
+  m_LocalPosition: {x: -0.30387658, y: -0.03687275, z: -0.17756294}
   m_LocalScale: {x: 0.9999993, y: 0.99999934, z: 0.99999994}
   m_Children:
   - {fileID: 965163142}
@@ -69902,7 +69909,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3038772, y: -0.03687651, z: -0.17756285}
+  m_ConnectedAnchor: {x: -0.30387658, y: -0.03687275, z: -0.17756294}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -71096,7 +71103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746262652}
   m_LocalRotation: {x: 0.14076653, y: 0.8913325, z: -0.007633439, w: 0.43087453}
-  m_LocalPosition: {x: -0.3038764, y: -0.03687426, z: 0.17756379}
+  m_LocalPosition: {x: -0.30387673, y: -0.03687613, z: 0.17756383}
   m_LocalScale: {x: 1.0000002, y: 0.9999998, z: 0.9999997}
   m_Children:
   - {fileID: 1443555170}
@@ -71131,7 +71138,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.30387604, y: -0.036872383, z: 0.17756374}
+  m_ConnectedAnchor: {x: -0.30387673, y: -0.03687613, z: 0.17756383}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -72156,7 +72163,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574188, y: 0.00000045076024, z: -0.000000447035}
+  m_ConnectedAnchor: {x: -0.26574117, y: 0.0000003185124, z: 0.00000011920933}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -74970,11 +74977,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  timeAttackOffset: 1
+  timeAttackOffset: 1.2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 977081155}
   leftHand: {fileID: 2124502727}
-  defaultWeapon: {fileID: 11400000, guid: acc7f68a1a4340e47a2782d45843dfb9, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e, type: 2}
 --- !u!114 &1864284661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75045,7 +75053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864284650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d0eb3ce29289a0429a51ba0d4148bd3, type: 3}
   m_Name: 
@@ -76394,6 +76402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   timeAttackOffset: 2
+  timeSinceLastAttack: Infinity
   targetIsInRange: 0
   rightHand: {fileID: 723117855}
   leftHand: {fileID: 447833222}
@@ -76441,16 +76450,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903856830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backWardMoveDistance: -0.5
   target: {fileID: 0}
   weapon: {fileID: 1715728778}
   puppet: {fileID: 0}
   distanceDebug: 0
+  stamina: 2
   defenceFlag: 0
 --- !u!95 &1903856843
 Animator:
@@ -80543,7 +80552,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.016426751, y: 0.04478675, z: 0.083921686}
+  m_ConnectedAnchor: {x: -0.016426751, y: 0.04478673, z: 0.08392075}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -84676,7 +84685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120758731}
   m_LocalRotation: {x: -0.10877405, y: 0.015097188, z: -0.696656, w: 0.70895046}
-  m_LocalPosition: {x: -0.43700308, y: 0.000000029918734, z: 0.00000014319086}
+  m_LocalPosition: {x: -0.43700308, y: 0.0000000372529, z: -0.00000008009375}
   m_LocalScale: {x: 0.99999976, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 223632583}
@@ -84694,7 +84703,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.43700355, y: 0.00000013946554, z: 0.00000020256269}
+  m_ConnectedAnchor: {x: -0.43700343, y: 0.000000116997384, z: -0.000000020489098}
   serializedVersion: 2
   m_SecondaryAxis: {x: -1, y: 0, z: 0}
   m_XMotion: 0
