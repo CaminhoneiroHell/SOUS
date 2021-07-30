@@ -17,6 +17,7 @@ namespace RPG.Attributes
         Collider col;
         ActionScheduler actionScheduler;
         [SerializeField] float regenerationPercentage = 70;
+        [SerializeField] UnityEvent onDie;
 
         [SerializeField] UnityEvent takeDamage;
 
@@ -57,7 +58,9 @@ namespace RPG.Attributes
             print(gameObject.name + " took damage: " + dmg);
             healthPoints.value = Mathf.Max(healthPoints.value - dmg, 0);
 
-            if (IsDead()){  
+            if (IsDead())
+            {
+                onDie.Invoke();
                 GainExperience(instigator);
                 Die();
             }
