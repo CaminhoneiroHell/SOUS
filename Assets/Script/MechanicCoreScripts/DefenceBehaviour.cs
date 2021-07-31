@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace UniversalZero.Core
 {
-    public class DefenceBehaviour : MonoBehaviour
+    public class DefenceBehaviour : BaseCombatSystem
     {
         Animator animator;
         [SerializeField] GameObject target;
@@ -26,23 +28,30 @@ namespace UniversalZero.Core
         [SerializeField] bool defenceFlag;
         public void ParryCaster()
         {
-            if (target != null && stamina > 0)
+            if (stamina > 0)
             {
+                //print("Distance: " + (gameObject.transform.position.x - target.transform.position.x));
+
                 gameObject.transform.position = new Vector3(transform.position.x,
                                                             transform.position.y,
                                                             lockZAxisRef);
 
-                //print("Distance: " + (gameObject.transform.position.x - target.transform.position.x));
 
                 if (OnGuard()) defenceFlag = false;
                 
                 if (ParryMoveReader("Talho")){
 
                     //Must move out of here
-                    GetComponent<RPG.Control.AIController>().enabled = false;
-                    GetComponent<RPG.Combat.Fighter>().enabled = false;
+                    if(gameObject.tag == "Thug")
+                    {
+                        GetComponent<RPG.Control.AIController>().enabled = false;
+                    }
 
-                    foreach(RootMotion.Dynamics.Muscle m in puppet.GetComponent<RootMotion.Dynamics.PuppetMaster>().muscles)
+                    GetComponent<RPG.Combat.Fighter>().enabled = false;
+                    GetComponent<RPG.Movement.Mover>().enabled = false;
+                    GetComponent<NavMeshAgent>().enabled = false;
+
+                    foreach (RootMotion.Dynamics.Muscle m in puppet.GetComponent<RootMotion.Dynamics.PuppetMaster>().muscles)
                     {
                         m.props.pinWeight = 1f;
                         m.props.muscleWeight = 1f;
@@ -103,6 +112,19 @@ namespace UniversalZero.Core
             }    
         }
 
+        public void SetTarget()
+        {
+            switch (gameObject.tag)
+            {
+                case "Player":
+                    target = GameObject.FindGameObjectWithTag("Thug");
+                    break;
+                case "Thug":
+                    target = GameObject.FindGameObjectWithTag("Player");
+                    break;
+            }
+        }
+
         private bool OnGuard()
         {
             return defenceFlag && (LayerMask.GetMask("Default") & (1 << target.layer)) > 0;
@@ -113,15 +135,33 @@ namespace UniversalZero.Core
             return !defenceFlag && (LayerMask.GetMask(atkType) & (1 << target.layer)) > 0;
         }
 
+
+        public void CancelDefenceBehaviour()
+        {
+            target = null;
+            if (gameObject.tag == "Thug")
+            {
+                GetComponent<RPG.Control.AIController>().enabled = true;
+            }
+
+            GetComponent<RPG.Combat.Fighter>().enabled = true;
+            GetComponent<RPG.Movement.Mover>().enabled = true;
+            GetComponent<NavMeshAgent>().enabled = true;
+        }
+
         void Update()
         {
-            distanceDebug = (gameObject.transform.position.x - target.transform.position.x);
-            
-            //if (distanceDebug < 2f)
-                //transform.Translate(new Vector3(transform.position.x, transform.position.y, transform.forward.z * backWardMoveDistance * Time.deltaTime), Space.World);
-    
+            if (target == null) 
+                return; 
             transform.LookAt(target.transform);
             ParryCaster();
+
+
+
+            //distanceDebug = (gameObject.transform.position.x - target.transform.position.x);
+            //if (distanceDebug < 2f)
+            //transform.Translate(new Vector3(transform.position.x, transform.position.y, transform.forward.z * backWardMoveDistance * Time.deltaTime), Space.World);
+
         }
 
         public void DefTalho()

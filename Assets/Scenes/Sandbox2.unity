@@ -242,7 +242,7 @@ Transform:
   - {fileID: 344452635}
   - {fileID: 975924661}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5679316
 GameObject:
@@ -514,6 +514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1292,6 +1295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -5135,6 +5141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -5763,7 +5772,7 @@ PrefabInstance:
     - target: {fileID: 731955905779454918, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
@@ -14798,7 +14807,7 @@ Transform:
   - {fileID: 583245428}
   - {fileID: 973015220}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327274831
 GameObject:
@@ -15073,7 +15082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337172860}
   m_LocalRotation: {x: -0.14076754, y: -0.8913323, z: -0.0076344884, w: 0.43087468}
-  m_LocalPosition: {x: -0.30387694, y: -0.036874626, z: -0.17756289}
+  m_LocalPosition: {x: -0.30387658, y: -0.03687275, z: -0.17756294}
   m_LocalScale: {x: 0.9999993, y: 0.99999934, z: 0.99999994}
   m_Children:
   - {fileID: 1676677285}
@@ -15108,7 +15117,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.30387694, y: -0.036874626, z: -0.17756289}
+  m_ConnectedAnchor: {x: -0.30387658, y: -0.03687275, z: -0.17756294}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -17983,7 +17992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431324429}
   m_LocalRotation: {x: 0.8082374, y: -0.106723115, z: 0.1667321, w: 0.55458367}
-  m_LocalPosition: {x: -0.27302548, y: 0.00000041723257, z: 0.0000006505288}
+  m_LocalPosition: {x: -0.2730246, y: -0.0000012889506, z: 0.00000065984204}
   m_LocalScale: {x: 1, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 1676677285}
@@ -18001,7 +18010,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27302548, y: 0.00000041723257, z: 0.0000006505288}
+  m_ConnectedAnchor: {x: -0.27302465, y: -0.0000013019891, z: 0.00000053085387}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -22777,7 +22786,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 17.33, y: 0.87985283, z: 8.461333}
+  m_ConnectedAnchor: {x: 22.4557, y: 0.87985283, z: 8.461333}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -30915,6 +30924,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -35182,7 +35194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &825405492
 Transform:
   m_ObjectHideFlags: 0
@@ -35191,14 +35203,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825405491}
   m_LocalRotation: {x: -0, y: -0.71646744, z: -0, w: 0.69762063}
-  m_LocalPosition: {x: 17.28, y: -0, z: 8.46}
+  m_LocalPosition: {x: 22.4057, y: 0, z: 8.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1416364276}
   - {fileID: 967075618}
   - {fileID: 1012692958}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &825866625
 GameObject:
@@ -37469,6 +37481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -40535,7 +40550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967713257}
   m_LocalRotation: {x: 0.003968498, y: -0.07920882, z: -0.2893204, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574117, y: 0.0000003185124, z: 0.00000011920933}
+  m_LocalPosition: {x: -0.26574087, y: 0.0000021997844, z: 0.00000017881399}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
   m_Children:
   - {fileID: 1745288207}
@@ -40570,7 +40585,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574117, y: 0.0000003185124, z: 0.00000011920933}
+  m_ConnectedAnchor: {x: -0.26574087, y: 0.0000021997844, z: 0.00000017881399}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -41779,7 +41794,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1012692958}
   - component: {fileID: 1012692970}
-  - component: {fileID: 1012692969}
   - component: {fileID: 1012692968}
   - component: {fileID: 1012692967}
   - component: {fileID: 1012692966}
@@ -41790,6 +41804,8 @@ GameObject:
   - component: {fileID: 1012692961}
   - component: {fileID: 1012692960}
   - component: {fileID: 1012692959}
+  - component: {fileID: 1012692971}
+  - component: {fileID: 1012692969}
   m_Layer: 22
   m_Name: ZombieIK
   m_TagString: Thug
@@ -41842,7 +41858,7 @@ MonoBehaviour:
   timeSinceReachedLastNode: Infinity
   patrolTimeEachNode: 4
   playerDistance: 0
-  playerDistanceToChase: 2
+  playerDistanceToChase: 3.2
   timeSinceLastSawnPlayer: Infinity
   suspiciousTime: 5
   patrolSpeedFraction: 0.4
@@ -41915,6 +41931,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -41948,7 +41967,7 @@ MonoBehaviour:
   targetIsInRange: 0
   rightHand: {fileID: 1244645735}
   leftHand: {fileID: 1276419930}
-  defaultWeapon: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: acc7f68a1a4340e47a2782d45843dfb9, type: 2}
 --- !u!114 &1012692967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41997,7 +42016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1864284650}
+  target: {fileID: 0}
   weapon: {fileID: 1816274171}
   puppet: {fileID: 967075617}
   distanceDebug: 0
@@ -42022,6 +42041,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1012692971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012692957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0eb3ce29289a0429a51ba0d4148bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1816274171}
+  target: {fileID: 0}
 --- !u!1 &1013632720
 GameObject:
   m_ObjectHideFlags: 0
@@ -44447,6 +44480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -52300,6 +52336,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -58696,7 +58735,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 9.43, y: 1.075, z: 8.94}
+  m_ConnectedAnchor: {x: 14.977737, y: 1.075, z: 8.94}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -68688,7 +68727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676677284}
   m_LocalRotation: {x: -0.0039684684, y: 0.07920891, z: -0.2893205, w: 0.9539412}
-  m_LocalPosition: {x: -0.26574144, y: 0.00000028312226, z: 0.00000017881396}
+  m_LocalPosition: {x: -0.26574165, y: -0.0000016149145, z: 0.00000014901163}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children:
   - {fileID: 431324430}
@@ -68723,7 +68762,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26574153, y: 0.00000029802345, z: 0.00000008940698}
+  m_ConnectedAnchor: {x: -0.2657417, y: -0.0000016000133, z: 0.00000005960465}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -68952,7 +68991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679461880}
   m_LocalRotation: {x: 0.14076653, y: 0.8913325, z: -0.007633439, w: 0.43087453}
-  m_LocalPosition: {x: -0.3038764, y: -0.03687426, z: 0.17756379}
+  m_LocalPosition: {x: -0.30387673, y: -0.03687613, z: 0.17756383}
   m_LocalScale: {x: 1.0000002, y: 0.9999998, z: 0.9999997}
   m_Children:
   - {fileID: 967713258}
@@ -68987,7 +69026,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3038764, y: -0.03687426, z: 0.17756379}
+  m_ConnectedAnchor: {x: -0.30387673, y: -0.03687613, z: 0.17756383}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -70944,7 +70983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745288206}
   m_LocalRotation: {x: -0.8082376, y: 0.10672311, z: 0.16673367, w: 0.5545829}
-  m_LocalPosition: {x: -0.27302417, y: -0.0000006705523, z: -0.0000000018626449}
+  m_LocalPosition: {x: -0.27302495, y: 0.0000010430814, z: 0.000000024680045}
   m_LocalScale: {x: 1.0000002, y: 0.99999976, z: 1}
   m_Children: []
   m_Father: {fileID: 967713258}
@@ -70962,7 +71001,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -1, z: -0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27302417, y: -0.0000006705523, z: -0.0000000018626449}
+  m_ConnectedAnchor: {x: -0.27302495, y: 0.0000010430814, z: 0.000000024680045}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: -1}
   m_XMotion: 0
@@ -74808,6 +74847,7 @@ GameObject:
   - component: {fileID: 1864284653}
   - component: {fileID: 1864284652}
   - component: {fileID: 1864284664}
+  - component: {fileID: 1864284665}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -74949,6 +74989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -74982,7 +75025,7 @@ MonoBehaviour:
   targetIsInRange: 0
   rightHand: {fileID: 977081155}
   leftHand: {fileID: 2124502727}
-  defaultWeapon: {fileID: 11400000, guid: c71fc3e3f9fb2684383be55850b3395e, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: acc7f68a1a4340e47a2782d45843dfb9, type: 2}
 --- !u!114 &1864284661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75053,13 +75096,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864284650}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d0eb3ce29289a0429a51ba0d4148bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 856690798}
   target: {fileID: 0}
+--- !u!114 &1864284665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864284650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34baf9b8850c33d48bce5e44f3e956a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  weapon: {fileID: 856690798}
+  puppet: {fileID: 1212857386}
+  distanceDebug: 0
+  stamina: 2
+  defenceFlag: 0
 --- !u!1 &1864528654
 GameObject:
   m_ObjectHideFlags: 0
@@ -76373,6 +76434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -85598,7 +85662,7 @@ PrefabInstance:
     - target: {fileID: 731955905779454918, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 731955905779454919, guid: d6cdc584b936a0143af9f921480faf21,
         type: 3}
@@ -85885,7 +85949,7 @@ PrefabInstance:
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4104333
+      value: 4.410433
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449126893893, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -85995,7 +86059,7 @@ PrefabInstance:
     - target: {fileID: 2916696449990818017, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4
+      value: 4.1477375
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449990818017, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -86060,7 +86124,7 @@ PrefabInstance:
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4104333
+      value: 4.410433
       objectReference: {fileID: 0}
     - target: {fileID: 2916696450849384373, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}

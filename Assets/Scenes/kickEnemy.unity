@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -650,7 +650,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26700968, y: 0.00000005960465, z: -0.000000037252903}
+  m_ConnectedAnchor: {x: -0.26700968, y: 0.00000008940698, z: -0.000000052154064}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -1138,7 +1138,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.40475947, y: 0, z: 1.110223e-16}
+  m_ConnectedAnchor: {x: -0.40475947, y: 0.000000029802322, z: 3.5527137e-15}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1284,7 +1284,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -1, z: -0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26700982, y: 0, z: 0.00000005960466}
+  m_ConnectedAnchor: {x: -0.26700982, y: 0.000000029802326, z: 0.00000008940699}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: -1}
   m_XMotion: 0
@@ -1727,7 +1727,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.4155469, y: 0.000000029802315, z: -0.000000026077032}
+  m_ConnectedAnchor: {x: -0.4155469, y: 0.00000005960463, z: -0.000000026077032}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2478,7 +2478,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.71, y: 0.94598264, z: 0.014785128}
+  m_ConnectedAnchor: {x: 1.71, y: 0.94598264, z: -1.0638366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -2626,276 +2626,91 @@ MonoBehaviour:
   deactivated: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 0
   balancerSettings:
     damperForSpring: 1
     maxForceMlp: 0.05
-    IMlp: 2
+    IMlp: 1
     velocityF: 0.5
     copOffset: {x: 0, y: 0, z: 0}
     torqueMlp: 0
     maxTorqueMag: 45
-  maxDuration: Infinity
+  maxDuration: 3
   finishTime: 1
-  unbalancedMuscleWeightMlp: 0.1
+  unbalancedMuscleWeightMlp: 0.5
   minAngle: 15
-  maxAngle: 65
+  maxAngle: 75
   stepHeight: 0.1
   stepRotationVFactor: 0
-  speedMlp: 0.15
+  speedMlp: 1
   speedByAngle:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 13.500141
-      inSlope: 0.3280123
-      outSlope: 0.3280123
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 59.067394
-      value: 22.274563
-      inSlope: -0.07333347
-      outSlope: -0.07333347
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 73.13544
-      value: -0.3002391
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   weightByProgress:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.009278834
-      inSlope: 4.3237104
-      outSlope: 4.3237104
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5043735
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.009278834
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   stepHeightmlpByProneDot:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.49931702
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.0007258562
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.13229537
-      value: 0.99979687
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   minAngleMlpByProneDot:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1.0016344
-      value: 0.99979776
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.115933
-      value: 2.5059538
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   windmillWeight:
-    mode: 1
-    floatValue: 0
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 6.2100053
-        value: 0
-        inSlope: 0.11477739
-        outSlope: 0.11477739
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 10.37529
-        value: 0.9328567
-        inSlope: 0.009775149
-        outSlope: 0.009775149
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 48.578484
-        value: 0.877256
-        inSlope: -0.013785239
-        outSlope: -0.013785239
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 84.1441
-        value: 0.0017438045
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  muscleWeight:
-    mode: 1
-    floatValue: 1
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.055219114
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 21.464859
-        value: 0.24572867
-        inSlope: -0.015352993
-        outSlope: -0.015352993
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 70.28842
-        value: 0.09912849
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  windmillSpeed:
-    mode: 1
-    floatValue: 12
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 4.7836485
-        value: 0.49511907
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 7.9986477
-        value: -11.375561
-        inSlope: 0.04717588
-        outSlope: 0.04717588
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  windmillSpread:
     mode: 0
-    floatValue: 0.85
+    floatValue: 1
     curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    tooltip: 
+    tooltip: The general weight of arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  muscleWeight:
+    mode: 0
+    floatValue: 1
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: Muscle weight of the arms. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  windmillSpeed:
+    mode: 0
+    floatValue: 12
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: The speed of the windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  windmillSpread:
+    mode: 0
+    floatValue: 0.8
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: The spread of the arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
   windmillRadius:
     mode: 0
     floatValue: 0.5
@@ -2905,28 +2720,21 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    tooltip: 
+    tooltip: The radius of the arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
   maintainArmRelativePos: 0.5
   windmillSyncOffset: 0.3
   windmillOffset: {x: 0, y: 0, z: 0}
   spineMuscleWeightMlp: 0.1
   onActivate:
     switchToBehaviour: 
-    animations:
-    - animationState: Idle
-      crossfadeTime: 0.7
-      layer: 0
-      resetNormalizedTime: 0
+    animations: []
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
   onLoseBalance:
     switchToBehaviour: 
-    animations:
-    - animationState: Falling
-      crossfadeTime: 0.5
-      layer: 0
-      resetNormalizedTime: 0
+    animations: []
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -2935,19 +2743,7 @@ MonoBehaviour:
     animations: []
     unityEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1209607161}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: Reset
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &440289330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683054057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 0, z: 0}
+  m_LocalPosition: {x: 1.71, y: 0, z: -0.078621864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1209607155}
@@ -4354,7 +4150,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.15844107, y: -0.01622577, z: -0.17002618}
+  m_ConnectedAnchor: {x: -0.15844107, y: -0.01622574, z: -0.17002618}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -7378,7 +7174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9949cf5e7adfb44b9b10f58782caeaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stagger: {fileID: 433926332}
+  stagger: {fileID: 0}
 --- !u!1 &1215948494
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,7 +8943,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3737792, y: -0.000000059604666, z: -0.000000014901153}
+  m_ConnectedAnchor: {x: -0.3737792, y: -0.000000089406996, z: -0.0000000074505766}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -10082,7 +9878,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.034340918, y: -0.0031900853, z: -0.08619213}
+  m_ConnectedAnchor: {x: 0.034340918, y: -0.003190102, z: -0.08619213}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -10262,7 +10058,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3737795, y: 0.00000008940697, z: 0.000000022351736}
+  m_ConnectedAnchor: {x: -0.37377957, y: 0.000000029802322, z: 0.000000007450579}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -11971,7 +11767,7 @@ PrefabInstance:
     - target: {fileID: 2916696449990818017, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.90465975
+      value: 0.99207544
       objectReference: {fileID: 0}
     - target: {fileID: 2916696449990818017, guid: e412f01eff3a35e4a85da87cfa45b3b8,
         type: 3}
@@ -14363,7 +14159,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -0, y: -0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.034340918, y: -0.0031900927, z: 0.08619213}
+  m_ConnectedAnchor: {x: 0.034340918, y: -0.0031901319, z: 0.08619213}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -14745,276 +14541,91 @@ MonoBehaviour:
   deactivated: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 0
   balancerSettings:
     damperForSpring: 1
     maxForceMlp: 0.05
-    IMlp: 2
+    IMlp: 1
     velocityF: 0.5
     copOffset: {x: 0, y: 0, z: 0}
     torqueMlp: 0
     maxTorqueMag: 45
   maxDuration: 3
-  finishTime: 2
-  unbalancedMuscleWeightMlp: 0.03
+  finishTime: 1
+  unbalancedMuscleWeightMlp: 0.5
   minAngle: 15
-  maxAngle: 65
+  maxAngle: 75
   stepHeight: 0.1
   stepRotationVFactor: 0
-  speedMlp: 0.15
+  speedMlp: 1
   speedByAngle:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 13.500141
-      inSlope: 0.3280123
-      outSlope: 0.3280123
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 59.067394
-      value: 22.274563
-      inSlope: -0.07333347
-      outSlope: -0.07333347
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 73.13544
-      value: -0.3002391
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   weightByProgress:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.009278834
-      inSlope: 4.3237104
-      outSlope: 4.3237104
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5043735
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.009278834
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   stepHeightmlpByProneDot:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.49931702
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.0007258562
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.13229537
-      value: 0.99979687
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   minAngleMlpByProneDot:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1.0016344
-      value: 0.99979776
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.115933
-      value: 2.5059538
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   windmillWeight:
-    mode: 1
-    floatValue: 0
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 2.4696033
-        value: 0
-        inSlope: 0.11477739
-        outSlope: 0.11477739
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 6.6348877
-        value: 0.9328567
-        inSlope: 0.009775149
-        outSlope: 0.009775149
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 48.578484
-        value: 0.877256
-        inSlope: -0.013785239
-        outSlope: -0.013785239
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 84.1441
-        value: 0.0017438045
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  muscleWeight:
-    mode: 1
-    floatValue: 1
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.055219114
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 21.464859
-        value: 0.24572867
-        inSlope: -0.015352993
-        outSlope: -0.015352993
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 70.28842
-        value: 0.09912849
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  windmillSpeed:
-    mode: 1
-    floatValue: 12
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 4.7836485
-        value: 0.49511907
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 7.9986477
-        value: -11.375561
-        inSlope: 0.04717588
-        outSlope: 0.04717588
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    tooltip: 
-  windmillSpread:
     mode: 0
-    floatValue: 0.85
+    floatValue: 1
     curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    tooltip: 
+    tooltip: The general weight of arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  muscleWeight:
+    mode: 0
+    floatValue: 1
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: Muscle weight of the arms. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  windmillSpeed:
+    mode: 0
+    floatValue: 12
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: The speed of the windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
+  windmillSpread:
+    mode: 0
+    floatValue: 0.8
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: The spread of the arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
   windmillRadius:
     mode: 0
     floatValue: 0.5
@@ -15024,33 +14635,26 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    tooltip: 
+    tooltip: The radius of the arm windmill. If using a curve, the value is evaluated
+      by the angle of the COM vector.
   maintainArmRelativePos: 0.5
   windmillSyncOffset: 0.3
   windmillOffset: {x: 0, y: 0, z: 0}
   spineMuscleWeightMlp: 0.1
   onActivate:
     switchToBehaviour: 
-    animations:
-    - animationState: Idle
-      crossfadeTime: 0.5
-      layer: 0
-      resetNormalizedTime: 0
+    animations: []
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
   onLoseBalance:
     switchToBehaviour: 
-    animations:
-    - animationState: Falling
-      crossfadeTime: 0.5
-      layer: 0
-      resetNormalizedTime: 0
+    animations: []
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
   onFinished:
-    switchToBehaviour: BehaviourPuppet
+    switchToBehaviour: 
     animations: []
     unityEvent:
       m_PersistentCalls:

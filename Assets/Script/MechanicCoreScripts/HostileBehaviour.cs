@@ -4,7 +4,61 @@ using UnityEngine;
 
 namespace UniversalZero.Core
 {
-    public class HostileBehaviour : MonoBehaviour
+    public interface IMediator
+    {
+        void Notify(object sender, string ev);
+    }
+
+    public class BaseCombatSystem : MonoBehaviour
+    {
+        protected IMediator _mediator;
+
+        public BaseCombatSystem(IMediator mediator = null)
+        {
+            this._mediator = mediator;
+        }
+
+        public void SetMediator(IMediator mediator)
+        {
+            this._mediator = mediator;
+        }
+    }
+
+    class CombatMediator : IMediator
+    {
+        private HostileBehaviour _hostile;
+
+        private DefenceBehaviour _defence;
+
+        public CombatMediator(HostileBehaviour hostile, DefenceBehaviour defence)
+        {
+            this._hostile = hostile;
+            this._hostile.SetMediator(this);
+            this._defence = defence;
+            this._defence.SetMediator(this);
+        }
+
+        public void Notify(object sender, string ev)
+        {
+            if (ev == "AtkTalho")
+            {
+                this._defence.SetTarget();
+                this._defence.GetComponent<HostileBehaviour>().enabled = false;
+                //print("Mediator reacts on A and triggers folowing operations:");
+                //this._defence.DoC();
+            }
+            if (ev == "Default")
+            {
+                this._defence.CancelDefenceBehaviour();
+                this._defence.GetComponent<HostileBehaviour>().enabled = true;
+                //print("Mediator reacts on D and triggers following operations:");
+                //this._hostile.DoB();
+                //this._defence.DoC();
+            }
+        }
+    }
+
+    public class HostileBehaviour : BaseCombatSystem
     {
         Animator animator;
         public GameObject weapon, target;
@@ -26,6 +80,12 @@ namespace UniversalZero.Core
             gameObject.transform.position = new Vector3(transform.position.x,
                 transform.position.y,
                 lockZAxisRef);
+
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CancelHostileBehaviour();
+            }
 
             #region OldInputs
             //if (Input.GetKeyDown(KeyCode.A))
@@ -63,10 +123,32 @@ namespace UniversalZero.Core
             #endregion
         }
 
+        GameObject targetTemp;
+        public void CancelHostileBehaviour()
+        {
+            targetTemp = target;
+            target = null;
+            Trigger("OutOfAttack");
+            this._mediator.Notify(this, "Default");
+
+        }
+
+        public void SetTargetPlayer()
+        {
+            if(gameObject.tag == "Thug")
+            {
+                target = targetTemp;
+            }
+        }
+
         public void StartHostileBehaviour(GameObject t){
             //Debug.LogWarning("Hostile Behaviour calling");
+
+            new CombatMediator(this,t.GetComponent<DefenceBehaviour>());
+
             target = t;
             Trigger("AtkTalho");
+            this._mediator.Notify(this, "AtkTalho");
         }
 
         #region Broadsword Singing Logic

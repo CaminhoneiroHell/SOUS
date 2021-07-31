@@ -9,6 +9,7 @@ using UnityEngine.AI;
 using GameDevTV.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using UniversalZero.Core;
 
 namespace RPG.Combat
 {
@@ -32,12 +33,23 @@ namespace RPG.Combat
         [SerializeField] Weapon defaultWeapon = null;
         [SerializeField] LazyValue<Weapon> currentWeapon;
 
+        HostileBehaviour hostileBehaviour;
+
+
+
+        //private void OnEnable()
+        //{
+        //    BattleMediator.StartBattleEvent battleEvent;
+        //}
+
+        //private void SetDe
 
         private void Awake()
         {
             mov = GetComponent<Mover>();
             animator = GetComponent<Animator>();
             scheduler = GetComponent<ActionScheduler>();
+            hostileBehaviour = GetComponent<HostileBehaviour>();
 
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
 
@@ -75,23 +87,36 @@ namespace RPG.Combat
                         scheduler.StartAction(this);
                         //print("Moveto called on update!");
                         transform.LookAt(target.transform);
+                        //animator.SetTrigger("Attack");
+                        //timeSinceLastAttack = 0;
 
                         switch (currentWeapon.value.name)
                         {
                             case "Sword":
-                                duellingFlag = true;
-                                GetComponent<UniversalZero.Core.HostileBehaviour>().StartHostileBehaviour(target.gameObject);
-                                timeSinceLastAttack = 0;
+                                if (hostileBehaviour.enabled)
+                                {
+                                    duellingFlag = true;
+                                    hostileBehaviour.StartHostileBehaviour(target.gameObject);
+                                    timeSinceLastAttack = 0;
+                                }
+                                else
+                                {
+                                    BaseAttack();
+                                }
                                 break;
                             default:
-                                animator.SetTrigger("Attack");
-                                timeSinceLastAttack = 0;
+                                BaseAttack();
                                 break;
                         }
-
                     }
                 }
             }
+        }
+
+        private void BaseAttack()
+        {
+            animator.SetTrigger("Attack");
+            timeSinceLastAttack = 0;
         }
 
         //private void Update()
@@ -173,7 +198,7 @@ namespace RPG.Combat
         void Hit_AnimationEvent()
         {
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (target != null/* && !duellingFlag*/)
+            if (target != null && !duellingFlag)
             {
                 target.TakeDamage(gameObject, damage);
             }

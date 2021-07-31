@@ -516,6 +516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   takeDamage:
     m_PersistentCalls:
       m_Calls: []
